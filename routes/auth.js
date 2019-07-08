@@ -20,8 +20,8 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
+    successRedirect: "/session/home",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
 }));
@@ -55,10 +55,10 @@ router.post("/signup", (req, res, next) => {
 
         newUser.save()
             .then(() => {
-                res.redirect("/");
+                res.redirect("/auth/login");
             })
             .catch(err => {
-                res.render("auth/signup", { message: "Something went wrong" });
+                res.render("/auth/signup", { message: "Something went wrong" });
             })
     });
 });

@@ -1,4 +1,29 @@
-<p><b>Your Name :</b> {{user.fullName}}</p>
 <p><b>Your firstName :</b> {{user.firstName}}</p>
-<p><b>Your id :</b> {{user.facebookId}}</p>
-<p><b>Your picture :</b> <img src="{{user.profilePicture}}" alt=""></p>
+
+<img src="{{user.profilePicture}}" alt="">
+
+<div class="tags-interests">
+    <p><b>My interests :</b></p>
+    {{#each user.interests}}
+    <span class="tag-interest">
+        <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
+    </span>
+    {{/each}}
+</div>
+
+<form action="/session/profile" method="post" id="input-new-interests">
+    <label for=" interest">Add interests tags :</label>
+    <input type="text" name="interest">
+</form>
+
+{{!-- <script>
+    const User = require("../../models/User.js")
+    console.log("profile picture: {{user.profilePicture}}")
+    let tagInterest = document.getElementsByClassName('tag-interest');
+    console.log(User)
+    Array.from(tagInterest).forEach((x, i) => x.onclick = () => {
+        console.log(i);
+
+
+    })
+</script> --}}

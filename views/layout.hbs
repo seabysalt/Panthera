@@ -13,26 +13,30 @@
   {{#unless user}}
   <div class="nav-start-header">
     <nav>
-      {{!-- <a href="/">Home</a> --}}
+
       <a href="/auth/login">Login</a>
       <a href="/auth/signup">Signup</a>
       <a href="/auth/logout">Logout</a>
+
     </nav>
   </div>
   {{/unless}}
+  {{#if user}}
+  <div id="head-menu">
+    <ul id="head-ul">
+
+      <li><a href="/session/home">Home</a></li>
+      <li><a href="/session/profile">Profile</a></li>
+      <li><a href="/auth/logout">Log out</a></li>
+
+    </ul>
+  </div>
+  {{/if}}
 
   {{{body}}}
 
 
-  <div id="head-menu">
-    <ul id="head-ul">
-      {{#if user}}
-      <li><a href="/session/home">Home</a></li>
-      <li><a href="/session/profile">Profile</a></li>
-      <li><a href="/auth/logout">Log out</a></li>
-      {{/if}}
-    </ul>
-  </div>
+
 
   <script src="/javascripts/script.js"></script>
 </body>
