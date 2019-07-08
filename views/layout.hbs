@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,33 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
+  {{#unless user}}
+  <div class="nav-start-header">
+    <nav>
+      {{!-- <a href="/">Home</a> --}}
+      <a href="/auth/login">Login</a>
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/logout">Logout</a>
+    </nav>
+  </div>
+  {{/unless}}
 
   {{{body}}}
 
+
+  <div id="head-menu">
+    <ul id="head-ul">
+      {{#if user}}
+      <li><a href="/session/home">Home</a></li>
+      <li><a href="/session/profile">Profile</a></li>
+      <li><a href="/auth/logout">Log out</a></li>
+      {{/if}}
+    </ul>
+  </div>
+
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

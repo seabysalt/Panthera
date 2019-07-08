@@ -1,31 +1,39 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const { Schema } = mongoose
+
 
 const userSchema = new Schema({
+  facebookId: String, //by Facebook from Pierre
   firstName: { // by Gmail
     type: String,
-    required: true
+    // required: true
   },
   lastName: { // by Gmail
     type: String,
-    required: true
+    // required: true
   },
+  fullName: String, //by Facebook from Pierre
   email: { // by Gmail
     type: String,
-    required: true
+    // required: true
   },
   password: {
     type: String,
-    required: true
+    // required: true
   },
-  role: {
-    type: String,
-    required: true
+  interests: {
+    type: [String]
+    // enum: possibleInterests,
   },
-  superviser: {
-    type: String,
-    required: true
-  },
+  // role: {
+  //   type: String,
+  // },
+  // supervisor: {
+  //   type: String,
+
+  // },
+  username: String,
+
   profilePicture: String, // by Gmail
   skills: [String],
   devBudget: Number, // by HR admin
@@ -36,6 +44,6 @@ const userSchema = new Schema({
       updatedAt: 'updated_at'
     }
   });
+const User = mongoose.model("User", userSchema);
 
-const User = mongoose.model('User', userSchema);
 module.exports = User;
