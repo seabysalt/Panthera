@@ -35,8 +35,6 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
     })
     res.redirect("/session/profile");
 })
-// let tagInterest = document.querySelectors('.tag-interest');
-// tagInterest.onClick = (e) => { console.log(e) }
 //##########################################
 
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
