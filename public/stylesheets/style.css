@@ -33,7 +33,7 @@ body {
     font-size: 12px;
     color: #1de9b6; } }
 
-/* ======================= Main Partial =========================== */
+/* ======================= Layout.hbs =========================== */
 #sticky-header {
   background-color: #e1f0f1;
   color: #0095a8;
@@ -45,7 +45,7 @@ body {
   position: fixed;
   height: 8vh;
   top: 0vh;
-  border-bottom: 3vh solid white; }
+  border-bottom: 1vh solid white; }
 
 #sticky-footer {
   background-color: #e1f0f1;
@@ -64,5 +64,30 @@ body {
   height: 3vh;
   width: auto;
   padding: 2.5vw 7vw 0 7vw; }
+
+.profilePicture {
+  border-radius: 50%; }
+
+/* ======================= home.hbs =========================== */
+.main-nav {
+  background-color: #e1f0f1;
+  color: #0095a8;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  text-transform: uppercase;
+  position: fixed;
+  height: 5vh;
+  top: 9vh;
+  border-bottom: 1vh solid white; }
+
+.main-nav img {
+  height: 3vh;
+  width: auto;
+  padding: 2.5vw 5vw 0 5vw; }
+
+.main-content-wrapper {
+  position: relative; }
 
 /*# sourceMappingURL=style.css.map */
