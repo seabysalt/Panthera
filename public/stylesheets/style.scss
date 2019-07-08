@@ -3,7 +3,61 @@
 ============================================================================= */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK:300,400,500,700&display=swap');
 
-/* Needed for sticky footer */
+/* ======================= Color Scheme =========================== */
+$colors: (
+  almostWhite: #fafafa,
+  shaddowWhite: #f5f5f5,
+  primary: #1de9b6,
+  blue: #00e5ff,
+  red: #ff1744,
+  purple: #651fff,
+  midblue: #2979ff,
+  cyan: #00e5ff,
+  green: #76ff03,
+  coraldark: #f44336,
+  yellow: #ffff00,
+);
+
+$colorGreen: (
+  light: #6effe8,
+  primary: #1de9b6,
+  dark: #00b686,
+);
+
+$colorRed: (
+  primary: #ff3d00,
+  light: #ff7539,
+  dark: #c30000,
+);
+
+$colorBlue2: (
+  primary: #18ffff,
+  light: #76ffff,
+  dark: #00cbcc,
+);
+
+$colorCoral: (
+  primary: #ff5252,
+  light: #ff867f,
+  dark: #c50e29,
+);
+
+$colorBlue: (
+  primary: #00b0ff,
+  light: #69e2ff,
+  dark: #0081cb,
+);
+
+$colorPanthera: (
+  primary: #26c6da,
+  light: #6ff9ff,
+  dark: #0095a8,
+  white: #e0f7fa
+);
+
+
+/* ======================= Needed for sticky footer =========================== */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -14,7 +68,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  // color: map-get($colors, primary);
+  color: map-get($colors, primary);
+  background-color: green;
 }
 
 
@@ -39,7 +95,7 @@ a {
     box-shadow: 0 0 3px rgb(205, 211, 239);
     border-radius: 3px; 
     font-size: 12px;
-    color: white;
+    color: map-get($colors, primary);
   }
 }
 
