@@ -21,7 +21,7 @@ router.get("/login", (req, res, next) => {
 
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/session/home",
-    failureRedirect: "/login",
+    failureRedirect: "/auth/login",
     failureFlash: true,
     passReqToCallback: true
 }));
@@ -49,7 +49,9 @@ router.post("/signup", (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
 
         const newUser = new User({
-            username: username,
+            firstName: username,
+            fullName: username,
+            // username: username,
             password: hashPass
         });
 

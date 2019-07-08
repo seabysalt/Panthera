@@ -40,11 +40,23 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
 //##########################################
 
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
+    // User.find(/* NEED TO FILTER/SORT BY INTERESTS IN COMMUN */).then(sameInterestUsers => {
+    //     // return users
+    //     res.render("session/home", { user: req.user, sameInterestUsers });
+    // }).catch(err => {
+    //     console.log(err)
+    // })
     res.render("session/home", { user: req.user });
 });
 
 router.get("/peers", (req, res) => {
-    res.render("session/peers", { user: req.user });
+    const myInterests = req.user.interests;
+    User.find({ 'interests': { $in: myInterests } } /* NEED TO FILTER/SORT BY INTERESTS IN COMMUN */).then(users => {
+        const sameInterestUsers = users.filter(obj => obj.id !== req.user.id)
+        res.render("session/peers", { user: req.user, sameInterestUsers });
+    }).catch(err => {
+        console.log(err)
+    })
 })
 
 router.get("/featured", (req, res) => {
