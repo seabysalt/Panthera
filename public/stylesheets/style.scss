@@ -1,0 +1,60 @@
+/* ==========================================================================
+                                General Styling
+============================================================================= */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK:300,400,500,700&display=swap');
+
+/* Needed for sticky footer */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font: 14px 'Noto Sans HK', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+/* ==========================================================================
+                                Mobile View
+============================================================================= */
+
+
+@media (max-width:767px)  {
+
+/* ======================= Signup & Login Page =========================== */
+  .signup, .login {
+    margin: 40px 0 40px 0;
+    width: 70vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: non;
+    border: 0.05px solid rgb(205, 211, 239);
+    box-shadow: 0 0 3px rgb(205, 211, 239);
+    border-radius: 3px; 
+    font-size: 12px;
+    color: white;
+  }
+}
+
+/* ======================= Main Partial =========================== */
+
+.page-content {
+  min-height: 100%;
+  margin-bottom: 100px; //this must be the same as the height of the footer
+}
+
+page-content::after {
+  content: "";
+  display: block;
+}
+
+.sticky-footer, .page-content::after {
+  height: 100px;
+}
