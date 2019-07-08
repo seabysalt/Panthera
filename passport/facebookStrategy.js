@@ -21,6 +21,7 @@ passport.use(
             facebookId: profile.id,
             fullName: profile.displayName,
             firstName: profile.displayName.split(" ")[0],
+            lastName: profile.displayName.split(" ")[1],
             profilePicture: profile.photos ? profile.photos[0].value : 'Not found'
           }).then(newUser => {
             return done(null, newUser);

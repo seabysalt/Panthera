@@ -49,7 +49,9 @@ router.post("/signup", (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
 
         const newUser = new User({
-            username: username,
+            firstName: username,
+            fullName: username,
+            // username: username,
             password: hashPass
         });
 
@@ -58,7 +60,7 @@ router.post("/signup", (req, res, next) => {
                 res.redirect("/auth/login");
             })
             .catch(err => {
-                res.render("auth/signup", { message: "Something went wrong" });
+                res.render("/auth/signup", { message: "Something went wrong" });
             })
     });
 });
