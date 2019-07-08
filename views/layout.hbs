@@ -21,18 +21,26 @@
   </div>
   {{/unless}}
 
-  {{{body}}}
-
-
-  <div id="head-menu">
-    <ul id="head-ul">
-      {{#if user}}
-      <li><a href="/session/home">Home</a></li>
-      <li><a href="/session/profile">Profile</a></li>
-      <li><a href="/auth/logout">Log out</a></li>
-      {{/if}}
-    </ul>
+  {{#if user}}
+  <div id="sticky-header">
+    <div class="logo">
+      <h1 class="panthera">Panthera</h1>
+    </div>
   </div>
+  {{/if}}
+
+  <div class="page-content"> 
+      {{{body}}}
+  </div>
+
+  {{#if user}}
+  <div id="sticky-footer">
+    <a href="/session/home"><img src="/images/home.png" alt="Home"></a>
+    <a href="/session/search"><img src="/images/search.png" alt="Search"></a>
+    <a href="/session/profile"><img src="{{user.profilePicture}}" alt="Profile"></a>
+  </div>
+  {{!-- <a href="/auth/logout">Log out</a> --}}
+  {{/if}}
 
   <script src="/javascripts/script.js"></script>
 </body>

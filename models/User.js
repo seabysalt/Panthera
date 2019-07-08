@@ -34,7 +34,10 @@ const userSchema = new Schema({
   // },
   username: String,
 
-  profilePicture: String, // by Gmail
+  profilePicture: {
+    type: String, // by Gmail
+    // default: url("https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi785Cw1qXjAhXR1qQKHVGvBcwQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pinclipart.com%2Fpindetail%2FoJxomi_person-svg-png-icon-free-download-profile-icon%2F&psig=AOvVaw3Rijl-CnZuF1tTv2CWk34i&ust=1562687381688092")
+  },
   skills: [String],
   devBudget: Number, // by HR admin
   favBookmarks: Schema.Types.ObjectId

@@ -52,7 +52,8 @@ $colorPanthera: (
   primary: #26c6da,
   light: #6ff9ff,
   dark: #0095a8,
-  white: #e0f7fa
+  veryDark: #018496,
+  white: #e1f0f1,
 );
 
 
@@ -65,13 +66,16 @@ html, body {
 
 body {
   font: 14px 'Noto Sans HK', sans-serif;
+  position: relative;
+  height: 150vh;
 }
 
 a {
+  // // color: map-get($colors, primary);
   // color: map-get($colors, primary);
-  color: map-get($colors, primary);
-  background-color: green;
+  // background-color: green;
 }
+
 
 
 /* ==========================================================================
@@ -101,16 +105,36 @@ a {
 
 /* ======================= Main Partial =========================== */
 
-.page-content {
-  min-height: 100%;
-  margin-bottom: 100px; //this must be the same as the height of the footer
+#sticky-header {
+  background-color: map-get($colorPanthera, white);
+  color: map-get($colorPanthera, dark);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  position: fixed;
+  height: 8vh;
+  top: 0vh;
+  border-bottom: 3vh solid white;
 }
 
-page-content::after {
-  content: "";
-  display: block;
+#sticky-footer {
+  background-color: map-get($colorPanthera, white);;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 5vh;
+  top:95vh;
+  margin: 0 5vw 0 5vw;
+  border-radius: 3px;
 }
 
-.sticky-footer, .page-content::after {
-  height: 100px;
+#sticky-footer img {
+  height: 3vh;
+  width: auto;
+  padding: 2.5vw 7vw 0 7vw;
 }
