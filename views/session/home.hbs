@@ -12,11 +12,17 @@
         {{> mainPartial}}
       {{/each}}
   </div>
-  <h2 class = "video-header" >Videos</h2>
+  <h2 class = "video-header" >Watching</h2>
   <div class="video-content-wrapper">
       {{#each user.interests}}
         {{> youtubePartial}}
       {{/each}}
+  </div>
+  <h2 class = "reading-header" >Reading</h2>
+  <div class="reading-content-wrapper">
+      {{!-- {{#each user.interests}}
+        {{> readingPartial}}
+      {{/each}} --}}
   </div>
 
 </div>

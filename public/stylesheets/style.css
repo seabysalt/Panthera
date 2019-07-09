@@ -135,15 +135,23 @@ body {
 .content-video {
   display: flex;
   flex-direction: column;
-  width: 90vw;
+  min-width: 90vw;
   margin: 0 5vw;
   border: 1px solid #e1f0f1;
   border-radius: 3px;
   box-shadow: 0 0 3px #e1f0f1; }
 
 .content-video iframe {
-  height: 10vh;
-  width: 20vw;
-  object-fit: contain; }
+  height: auto;
+  width: 80vw;
+  object-fit: contain;
+  align-self: center; }
+
+.reading-header {
+  color: #0095a8;
+  margin: 10px 0 10px 20px;
+  position: relative;
+  top: 15vh;
+  font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */
