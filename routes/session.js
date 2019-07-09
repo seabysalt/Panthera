@@ -2,7 +2,8 @@ const express = require("express")
 const router = express.Router()
 const ensureLogin = require("connect-ensure-login");
 const User = require("../models/User");
-const getRSS = require("../public/javascripts/getRSS");
+// const getRSS = require("../public/javascripts/getRSS");
+const getArticlesForInterest = require("../public/javascripts/newApi");
 
 router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("session/profile", { User, user: req.user });
@@ -33,20 +34,25 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
 })
 
 
-
-
-
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
-    let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
-    Promise.all(mediumFeed).then(mediumData => {
-        res.render("session/home", { user: req.user, mediumData });
+    let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+
+    function shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+    Promise.all(interestsFeed).then(feed => {
+        const feedArticles = (feed.reduce((acc, val) => {
+            return acc.concat(val.articles)
+        }, []))
+        res.render("session/home", { user: req.user, feedArticles: shuffle(feedArticles).splice(0, 10) });
     }).catch(err => {
         console.log(err)
     })
 });
-
-
-
 
 
 router.get("/peers", (req, res) => {
