@@ -207,7 +207,7 @@ a {
 /* ================================= Interests Bar ==================================== */
 
 .interests-bar {
-  margin: 3vw 0 2vw 1vw;
+  margin: 0vw 0 2vw 1vw;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -239,6 +239,23 @@ a {
   color: map-get($colorPanthera, primary);
   background-color: map-get($colorPanthera, button);
   font-size: 12px;
+}
+
+/* ================================= Listening Section ==================================== */
+.listening-header {
+  color: map-get($colorPanthera, dark);
+  margin: 10px 0 10px 20px;
+  position: relative;
+  font-size: 16px;
+ }
+
+.listening-content-wrapper {
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between;
 }
 
 /* ==================================== Video Section =========================================== */
@@ -348,5 +365,25 @@ a {
   height: 30%;
 }
 
+/* ======================================= Slider Effect ===================================== */
 
+/* ======================================= Search ===================================== */
+
+.search-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input input {
+  border: 1px solid map-get($colorPanthera, dark );
+  border-radius: 3px;
+  height: 20px;
+}
+
+.search-input img {
+  height: 40px;
+}
 

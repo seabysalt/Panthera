@@ -21,6 +21,13 @@
     {{/each}}
 </div>
 
+<h2 class = "listening-header" >Listening</h2>
+<div class="listening-content-wrapper" style="height: 20vh">
+    {{!-- {{#each ..}}
+    {{> listeningPartial}}
+    {{/each}} --}}
+</div>
+
 <h2 class = "video-header" >Watching</h2>
 <div class="video-content-wrapper">
     {{#each videoId}}
@@ -40,6 +47,7 @@
         {{#if this.urlToImage}}
         <img src="{{this.urlToImage}}" width="100%" alt="">
         {{/if}}
+
         
         <p>{{this.description}}</p>
         <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
@@ -49,6 +57,8 @@
 </div>
 
 </div>
+
+
 
 
 

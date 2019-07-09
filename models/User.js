@@ -41,7 +41,7 @@ const userSchema = new Schema({
 
   profilePicture: {
     type: String, // by Gmail
-    default: '/images/panthera.png'
+    default: '/images/panthera2.png'
   },
   skills: [String],
   devBudget: Number, // by HR admin
