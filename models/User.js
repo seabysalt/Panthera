@@ -25,6 +25,10 @@ const userSchema = new Schema({
     type: [String]
     // enum: possibleInterests,
   },
+  websites: {
+    type: [String]
+    // enum: possibleInterests,
+  },
   // role: {
   //   type: String,
   // },

@@ -16,6 +16,22 @@
     <input type="text" name="interest">
 </form>
 
+{{!-- //----------// --}}
+
+<div class="tags-interests">
+    <p><b>My websites :</b></p>
+    {{#each user.websites}}
+
+    <li><a href="http://{{this}}">{{this}}</a></li>
+
+    {{/each}}
+</div>
+
+<form action="/session/profile" method="post" id="input-new-website">
+    <label for=" website">Add link :</label>
+    <input type="text" name="website">
+</form>
+
 {{!-- <script>
     const User = require("../../models/User.js")
     console.log("profile picture: {{user.profilePicture}}")

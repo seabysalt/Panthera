@@ -8,3 +8,28 @@
 
 <h3>Feed filtered by my own interests</h3>
 <p>( here comes the feed filtered by pref: {{user.interests}} )</p>
+
+<h3>Medium feed</h3>
+{{#each mediumData}}
+<h4>{{this.title}}</h4>
+{{#each this.items}}
+<h5>{{this.title}}</h5>
+<div class="postRSSdiv">
+    {{{this.content}}}
+
+    <span>by {{this.creator}}</span>
+    <a href="{{this.link}}">read on Medium</a>
+</div>
+{{/each}}
+
+{{/each}}
+
+<style>
+    .postRSSdiv {
+        width: 400px;
+    }
+
+    .postRSSdiv img {
+        width: 400px;
+    }
+</style>
