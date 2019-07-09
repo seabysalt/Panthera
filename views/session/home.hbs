@@ -7,36 +7,31 @@
     <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
 </div>
 
-  <div class="main-content-wrapper">
-      {{#each user.interests}}
-        {{> mainPartial}}
-      {{/each}}
-  </div>
-  <h2 class = "video-header" >Watching</h2>
-  <div class="video-content-wrapper">
-      {{#each videoId}}
-        {{> youtubePartial}}
-      {{/each}}
-  </div>
-  <h2 class = "reading-header" >Reading</h2>
-  <div class="reading-content-wrapper">
-      {{!-- {{#each user.interests}}
-        {{> readingPartial}}
-      {{/each}} --}}
-      <h3>Medium feed</h3>
-{{#each mediumData}}
-<h4>{{this.title}}</h4>
-{{#each this.items}}
-<h5>{{this.title}}</h5>
-<div class="postRSSdiv">
-    {{{this.content}}}
+<div class="main-content-wrapper">
+    {{#each user.interests}}
+    {{> mainPartial}}
+    {{/each}}
+</div>
 
-    <span>by {{this.creator}}</span>
-    <a href="{{this.link}}">read on Medium</a>
+<h2 class = "video-header" >Watching</h2>
+<div class="video-content-wrapper">
+    {{#each videoId}}
+    {{> youtubePartial}}
+    {{/each}}
+</div>
+
+<h2 class = "reading-header" >Reading</h2>
+<div class="reading-content-wrapper">
+{{#each feedArticles}}
+<div class="articlefeed">
+    <h4>{{this.title}}</h4>
+    <p>by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
+    <img src="{{this.urlToImage}}" width="100%" alt="">
+    <p>{{this.description}}</p>
+    <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>
 </div>
 {{/each}}
-
-{{/each}}
+</div>
 
 
 
@@ -48,13 +43,27 @@
     .postRSSdiv img {
         width: 400px;
     }
+
+    .articlefeed {
+        padding: 10px;
+        border-bottom: solid 1px gray;
+        margin-bottom: 10px;
+    }
+
+    .articlefeed p {
+        text-align: justify;
+        padding: 10px;
+    }
+
+    .articlefeed img {
+        border-radius: 10px;
+    }
+
+    .articlefeed h4 {
+        color: rgb(29, 29, 29);
+        font-size: 1.5em;
+    }
 </style>
-
-
-</div>
-  </div>
-
-
 
 
 {{!-- // --}}

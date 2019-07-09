@@ -2,7 +2,8 @@ const express = require("express")
 const router = express.Router()
 const ensureLogin = require("connect-ensure-login");
 const User = require("../models/User");
-const getRSS = require("../public/javascripts/getRSS");
+// const getRSS = require("../public/javascripts/getRSS");
+const getArticlesForInterest = require("../public/javascripts/newApi");
 
 const { google } = require("googleapis");
 
@@ -40,12 +41,9 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
 })
 
 
-
-
-
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
-    let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
+    // let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
 
     let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
     part: "snippet",
@@ -58,22 +56,33 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
   })
    )
 
+    // Promise.all(mediumFeed).then((mediumData) => {
+    //     // get the video ids rs
 
-    Promise.all(mediumFeed).then((mediumData) => {
-        // get the video ids rs
-
-        Promise.all(youtubeFeed).then((videoId)=>{
+    Promise.all(youtubeFeed).then((videoId)=>{
 
        let newId = videoId.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el != undefined)
-        res.render("session/home", { user: req.user, mediumData,videoId:newId});
-        })
+
+       let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+        function shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+           }
+        return a;
+       }
+
+    Promise.all(interestsFeed)
+        .then(feed => {
+            const feedArticles = (feed.reduce((acc, val) => {
+            return acc.concat(val.articles)
+            }, []))
+        res.render("session/home", { user: req.user, videoId:newId, feedArticles: shuffle(feedArticles).splice(0, 10)});
     }).catch(err => {
         console.log(err)
     })
+       })
 });
-
-
-
 
 
 router.get("/peers", (req, res) => {

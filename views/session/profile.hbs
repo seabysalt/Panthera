@@ -18,28 +18,25 @@
 
 {{!-- //----------// --}}
 
-<div class="tags-interests">
-    <p><b>My websites :</b></p>
-    {{#each user.websites}}
 
-    <li><a href="http://{{this}}">{{this}}</a></li>
+<style>
+    .tag-interest {
+        padding: 6px;
+        border-radius: 5px;
+        margin: 5px;
+        border: solid 1px gray
+    }
 
-    {{/each}}
-</div>
+    .tag-interest a {
+        text-decoration: none;
+        color: gray;
+    }
 
-<form action="/session/profile" method="post" id="input-new-website">
-    <label for=" website">Add link :</label>
-    <input type="text" name="website">
-</form>
-
-{{!-- <script>
-    const User = require("../../models/User.js")
-    console.log("profile picture: {{user.profilePicture}}")
-    let tagInterest = document.getElementsByClassName('tag-interest');
-    console.log(User)
-    Array.from(tagInterest).forEach((x, i) => x.onclick = () => {
-        console.log(i);
-
-
-    })
-</script> --}}
+    .tag-interest:hover,
+    .tag-interest a:hover {
+        text-decoration: none;
+        color: #fff;
+        background-color: rgb(255, 74, 74);
+        border: none
+    }
+</style>
