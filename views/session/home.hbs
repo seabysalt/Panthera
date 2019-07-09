@@ -7,9 +7,17 @@
     <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
 </div>
 
-<div class="main-content-wrapper">
+
+{{!-- <div class="main-content-wrapper">
     {{#each user.interests}}
     {{> mainPartial}}
+    {{/each}}
+</div> --}}
+<div class="parent-div">
+<div class="interests-bar">
+    <button class = "interest-btn-all" type="submit">All</button>
+    {{#each user.interests}}
+    <button class = "interest-btn" type="submit">{{this}}</button>
     {{/each}}
 </div>
 
@@ -22,48 +30,27 @@
 
 <h2 class = "reading-header" >Reading</h2>
 <div class="reading-content-wrapper">
-{{#each feedArticles}}
-<div class="articlefeed">
-    <h4>{{this.title}}</h4>
-    <p>by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
-    <img src="{{this.urlToImage}}" width="100%" alt="">
-    <p>{{this.description}}</p>
-    <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>
+    {{#each feedArticles}}
+    <div class="articlefeed">
+        <h4>{{this.title}}</h4>
+        
+        {{#unless this.urlToImage}}
+        <img class="cover" src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" width="100%" alt="">
+        {{/unless}}
+        {{#if this.urlToImage}}
+        <img src="{{this.urlToImage}}" width="100%" alt="">
+        {{/if}}
+        
+        <p>{{this.description}}</p>
+        <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
+        <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
+
 </div>
 
 
-
-<style>
-    .postRSSdiv {
-        width: 400px;
-    }
-
-    .postRSSdiv img {
-        width: 400px;
-    }
-
-    .articlefeed {
-        padding: 10px;
-        border-bottom: solid 1px gray;
-        margin-bottom: 10px;
-    }
-
-    .articlefeed p {
-        text-align: justify;
-        padding: 10px;
-    }
-
-    .articlefeed img {
-        border-radius: 10px;
-    }
-
-    .articlefeed h4 {
-        color: rgb(29, 29, 29);
-        font-size: 1.5em;
-    }
-</style>
 
 
 {{!-- // --}}

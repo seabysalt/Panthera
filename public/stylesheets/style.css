@@ -13,6 +13,10 @@ body {
   position: relative;
   height: auto; }
 
+.parent-div {
+  position: relative;
+  top: 16vh; }
+
 /* ==========================================================================
                                 Mobile View
 ============================================================================= */
@@ -45,7 +49,8 @@ body {
   position: fixed;
   height: 8vh;
   top: 0vh;
-  border-bottom: 1vh solid white; }
+  border-bottom: 1vh solid white;
+  z-index: 10; }
 
 #sticky-footer {
   background-color: #e1f0f1;
@@ -80,22 +85,13 @@ body {
   position: fixed;
   height: 5vh;
   top: 9vh;
-  border-bottom: 1vh solid white; }
+  border-bottom: 1vh solid white;
+  z-index: 10; }
 
 .main-nav img {
   height: 3vh;
   width: auto;
   padding: 2.5vw 5vw 0 5vw; }
-
-.main-content-wrapper {
-  position: relative;
-  top: 15vh;
-  margin-left: 1vw;
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  justify-content: flex-start;
-  align-items: space-between; }
 
 /* ======================= mainPartial.hbs =========================== */
 .content-container {
@@ -115,16 +111,47 @@ body {
 .content-description {
   padding-left: 2vw; }
 
+/* ================================= Interests Bar ==================================== */
+.interests-bar {
+  margin: 3vw 0 2vw 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between; }
+
+.interest-btn-all {
+  border: none;
+  border-radius: 3px;
+  border: 0.4px solid #26c6da;
+  width: auto;
+  height: auto;
+  padding: 0 2vw;
+  margin: 0 2vw;
+  color: #26c6da;
+  background-color: #ebf1f1;
+  font-size: 12px; }
+
+.interest-btn {
+  border: none;
+  border-radius: 3px;
+  border: 0.4px solid #26c6da;
+  width: auto;
+  height: auto;
+  padding: 1vw 2vw;
+  margin: 0 2vw;
+  color: #26c6da;
+  background-color: #ebf1f1;
+  font-size: 12px; }
+
+/* ==================================== Video Section =========================================== */
 .video-header {
   color: #0095a8;
   margin: 10px 0 10px 20px;
   position: relative;
-  top: 15vh;
-  font-size: 14px; }
+  font-size: 16px; }
 
 .video-content-wrapper {
-  position: relative;
-  top: 15vh;
   margin-left: 1vw;
   display: flex;
   flex-direction: row;
@@ -147,11 +174,63 @@ body {
   object-fit: contain;
   align-self: center; }
 
+/* ================================= Reading Section ==================================== */
+.reading-content-wrapper {
+  margin: 3vw 0 2vw 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between; }
+
 .reading-header {
   color: #0095a8;
-  margin: 10px 0 10px 20px;
+  margin: 10px 0 0px 20px;
   position: relative;
-  top: 15vh;
-  font-size: 14px; }
+  font-size: 16px; }
+
+.postRSSdiv {
+  width: 400px; }
+
+.postRSSdiv img {
+  width: 400px; }
+
+.articlefeed {
+  position: relative;
+  min-width: 90vw;
+  border-bottom: solid 1px gray;
+  margin: 0px 10px 10px 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column; }
+
+.articlefeed p {
+  text-align: justify;
+  margin: 10px 0; }
+
+.publisher {
+  width: 100%;
+  text-align: right;
+  margin: 0;
+  height: 40px; }
+
+.articlefeed img {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 30%; }
+
+.articlefeed h4 {
+  color: #018496;
+  font-size: 14px;
+  margin: 5px 0;
+  height: 60px; }
+
+.cover {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 30%; }
 
 /*# sourceMappingURL=style.css.map */
