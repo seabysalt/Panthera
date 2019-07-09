@@ -1,10 +1,10 @@
 {{!---------------------------- Filter by Interest ----------------------------------}}
 
 <div class="main-nav">
-  <a href="/session/home"><img src="../images/yourInterests.png" alt="Home"></a>
-  <a href="/session/peers"><img src="../images/peers.png" alt="Peers"></a>
-  <a href="/session/featured"><img src="../images/new.png" alt="Featured"></a>
-  <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
+    <a href="/session/home"><img src="../images/yourInterests.png" alt="Home"></a>
+    <a href="/session/peers"><img src="../images/peers.png" alt="Peers"></a>
+    <a href="/session/featured"><img src="../images/new.png" alt="Featured"></a>
+    <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
 </div>
 
   <div class="main-content-wrapper">
@@ -14,7 +14,7 @@
   </div>
   <h2 class = "video-header" >Watching</h2>
   <div class="video-content-wrapper">
-      {{#each user.interests}}
+      {{#each videoId}}
         {{> youtubePartial}}
       {{/each}}
   </div>
@@ -23,6 +23,41 @@
       {{!-- {{#each user.interests}}
         {{> readingPartial}}
       {{/each}} --}}
-  </div>
+      <h3>Medium feed</h3>
+{{#each mediumData}}
+<h4>{{this.title}}</h4>
+{{#each this.items}}
+<h5>{{this.title}}</h5>
+<div class="postRSSdiv">
+    {{{this.content}}}
+
+    <span>by {{this.creator}}</span>
+    <a href="{{this.link}}">read on Medium</a>
+</div>
+{{/each}}
+
+{{/each}}
+
+
+
+<style>
+    .postRSSdiv {
+        width: 400px;
+    }
+
+    .postRSSdiv img {
+        width: 400px;
+    }
+</style>
+
 
 </div>
+  </div>
+
+
+
+
+{{!-- // --}}
+{{!-- <h3>Feed filtered by my own interests</h3> --}}
+{{!-- <p>( here comes the feed filtered by pref: {{user.interests}} )</p> --}}
+

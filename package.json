@@ -17,6 +17,7 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "googleapis": "^40.0.1",
     "hbs": "^4.0.1",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
@@ -24,6 +25,7 @@
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
+    "rss-parser": "^3.7.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

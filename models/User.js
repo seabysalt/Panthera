@@ -26,6 +26,10 @@ const userSchema = new Schema({
     default: 'Music'
     // enum: possibleInterests,
   },
+  websites: {
+    type: [String]
+    // enum: possibleInterests,
+  },
   // role: {
   //   type: String,
   // },
