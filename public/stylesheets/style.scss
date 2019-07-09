@@ -67,7 +67,7 @@ html, body {
 body {
   font: 14px 'Noto Sans HK', sans-serif;
   position: relative;
-  height: 150vh;
+  height: auto;
 }
 
 a {
@@ -166,6 +166,70 @@ a {
 
 .main-content-wrapper {
   position: relative;
-  top: 10vh;
+  top: 15vh;
   margin-left: 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between;
 }
+
+/* ======================= mainPartial.hbs =========================== */
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  margin: 0 5vw;
+  border: 1px solid #e1f0f1;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #e1f0f1;
+}
+
+.content-image img {
+  height: 10vh;
+  width: 10vh;
+  object-fit: contain;
+}
+
+.content-description {
+  padding-left: 2vw;
+}
+
+.video-header {
+  color: map-get($colorPanthera, dark);
+  margin: 10px 0 10px 20px;
+  position: relative;
+  top: 15vh;
+  font-size: 14px;
+ }
+
+.video-content-wrapper {
+  position: relative;
+  top: 15vh;
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between;
+}
+
+.content-video {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 0 5vw;
+  border: 1px solid #e1f0f1;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #e1f0f1;
+}
+
+.content-video iframe {
+  height: 10vh;
+  width: 20vw;
+  object-fit: contain;
+}
+
+
+

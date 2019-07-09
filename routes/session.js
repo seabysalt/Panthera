@@ -44,6 +44,7 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
     // }).catch(err => {
     //     console.log(err)
     // })
+    console.log(req.user)
     res.render("session/home", { user: req.user });
 });
 

@@ -12,5 +12,11 @@
         {{> mainPartial}}
       {{/each}}
   </div>
+  <h2 class = "video-header" >Videos</h2>
+  <div class="video-content-wrapper">
+      {{#each user.interests}}
+        {{> youtubePartial}}
+      {{/each}}
+  </div>
 
 </div>
