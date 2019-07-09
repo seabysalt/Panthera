@@ -3,7 +3,62 @@
 ============================================================================= */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK:300,400,500,700&display=swap');
 
-/* Needed for sticky footer */
+/* ======================= Color Scheme =========================== */
+$colors: (
+  almostWhite: #fafafa,
+  shaddowWhite: #f5f5f5,
+  primary: #1de9b6,
+  blue: #00e5ff,
+  red: #ff1744,
+  purple: #651fff,
+  midblue: #2979ff,
+  cyan: #00e5ff,
+  green: #76ff03,
+  coraldark: #f44336,
+  yellow: #ffff00,
+);
+
+$colorGreen: (
+  light: #6effe8,
+  primary: #1de9b6,
+  dark: #00b686,
+);
+
+$colorRed: (
+  primary: #ff3d00,
+  light: #ff7539,
+  dark: #c30000,
+);
+
+$colorBlue2: (
+  primary: #18ffff,
+  light: #76ffff,
+  dark: #00cbcc,
+);
+
+$colorCoral: (
+  primary: #ff5252,
+  light: #ff867f,
+  dark: #c50e29,
+);
+
+$colorBlue: (
+  primary: #00b0ff,
+  light: #69e2ff,
+  dark: #0081cb,
+);
+
+$colorPanthera: (
+  primary: #26c6da,
+  light: #6ff9ff,
+  dark: #0095a8,
+  veryDark: #018496,
+  white: #e1f0f1,
+);
+
+
+/* ======================= Needed for sticky footer =========================== */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -11,11 +66,16 @@ html, body {
 
 body {
   font: 14px 'Noto Sans HK', sans-serif;
+  position: relative;
+  height: auto;
 }
 
 a {
-  color: #00B7FF;
+  // // color: map-get($colors, primary);
+  // color: map-get($colors, primary);
+  // background-color: green;
 }
+
 
 
 /* ==========================================================================
@@ -39,22 +99,137 @@ a {
     box-shadow: 0 0 3px rgb(205, 211, 239);
     border-radius: 3px; 
     font-size: 12px;
-    color: white;
+    color: map-get($colors, primary);
   }
 }
 
-/* ======================= Main Partial =========================== */
+/* ======================= Layout.hbs =========================== */
 
-.page-content {
-  min-height: 100%;
-  margin-bottom: 100px; //this must be the same as the height of the footer
+#sticky-header {
+  background-color: map-get($colorPanthera, white);
+  color: map-get($colorPanthera, dark);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  position: fixed;
+  height: 8vh;
+  top: 0vh;
+  border-bottom: 1vh solid white;
 }
 
-page-content::after {
-  content: "";
-  display: block;
+#sticky-footer {
+  background-color: map-get($colorPanthera, white);;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 5vh;
+  top:95vh;
+  margin: 0 5vw 0 5vw;
+  border-radius: 3px;
 }
 
-.sticky-footer, .page-content::after {
-  height: 100px;
+#sticky-footer img {
+  height: 3vh;
+  width: auto;
+  padding: 2.5vw 7vw 0 7vw;
 }
+
+.profilePicture {
+  border-radius: 50%;
+}
+
+/* ======================= home.hbs =========================== */
+.main-nav {
+  background-color: map-get($colorPanthera, white);
+  color: map-get($colorPanthera, dark);
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+  text-transform: uppercase;
+  position: fixed;
+  height: 5vh;
+  top: 9vh;
+  border-bottom: 1vh solid white;
+}
+
+.main-nav img {
+  height: 3vh;
+  width: auto;
+  padding: 2.5vw 5vw 0 5vw;
+}
+
+.main-content-wrapper {
+  position: relative;
+  top: 15vh;
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between;
+}
+
+/* ======================= mainPartial.hbs =========================== */
+.content-container {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  margin: 0 5vw;
+  border: 1px solid #e1f0f1;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #e1f0f1;
+}
+
+.content-image img {
+  height: 10vh;
+  width: 10vh;
+  object-fit: contain;
+}
+
+.content-description {
+  padding-left: 2vw;
+}
+
+.video-header {
+  color: map-get($colorPanthera, dark);
+  margin: 10px 0 10px 20px;
+  position: relative;
+  top: 15vh;
+  font-size: 14px;
+ }
+
+.video-content-wrapper {
+  position: relative;
+  top: 15vh;
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: space-between;
+}
+
+.content-video {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 0 5vw;
+  border: 1px solid #e1f0f1;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #e1f0f1;
+}
+
+.content-video iframe {
+  height: 10vh;
+  width: 20vw;
+  object-fit: contain;
+}
+
+
+

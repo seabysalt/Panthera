@@ -22,7 +22,8 @@ const userSchema = new Schema({
     // required: true
   },
   interests: {
-    type: [String]
+    type: [String],
+    default: 'Music'
     // enum: possibleInterests,
   },
   websites: {
@@ -38,7 +39,10 @@ const userSchema = new Schema({
   // },
   username: String,
 
-  profilePicture: String, // by Gmail
+  profilePicture: {
+    type: String, // by Gmail
+    default: 'https://static.thenounproject.com/png/66853-200.png'
+  },
   skills: [String],
   devBudget: Number, // by HR admin
   favBookmarks: Schema.Types.ObjectId
