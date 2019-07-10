@@ -290,7 +290,8 @@ body {
     width: 10vh;
     object-fit: contain; }
   .content-description {
-    padding-left: 2vw; }
+    padding-left: 2vw;
+    color: #1d1d1d; }
   /* ================================= Interests Bar ==================================== */
   .interests-bar {
     margin: 0vw 0 2vw 1vw;
@@ -302,24 +303,24 @@ body {
   .interest-btn-all {
     border: none;
     border-radius: 3px;
-    border: 0.4px solid #ff5252;
+    border: 0.4px solid #c50e29;
     width: auto;
     height: auto;
     padding: 0 2vw;
     margin: 0 2vw;
-    color: #ff5252;
-    background-color: #ebf1f1;
+    color: #c50e29;
+    background-color: #ff857f;
     font-size: 12px; }
   .interest-btn {
     border: none;
     border-radius: 3px;
-    border: 0.4px solid #ff5252;
+    border: 0.4px solid #c50e29;
     width: auto;
     height: auto;
     padding: 1vw 2vw;
     margin: 0 2vw;
-    color: #ff5252;
-    background-color: #ebf1f1;
+    color: #c50e29;
+    background-color: #ff857f;
     font-size: 12px; }
   /* ================================= Listening Section ==================================== */
   .listening-header {
@@ -399,6 +400,7 @@ body {
   .articlefeed {
     position: relative;
     min-width: 90vw;
+    height: auto;
     border-bottom: solid 1px gray;
     margin: 0px 10px 10px 20px;
     display: flex;
@@ -407,20 +409,26 @@ body {
     flex-direction: column; }
   .articlefeed p {
     text-align: justify;
-    margin: 10px 0; }
+    margin: 10px 0 0 0; }
   .publisher {
     width: 100%;
     text-align: right;
     margin: 0;
     height: 40px; }
+  .publisher p {
+    margin: 0;
+    padding: 0; }
+  .publisher-link a {
+    text-decoration: none;
+    color: #c50e29; }
   .articlefeed img {
     border-radius: 10px;
     object-fit: cover;
     width: 100%;
     height: 30%; }
   .articlefeed h4 {
-    color: #c50e29;
-    font-size: 16px;
+    color: #1d1d1d;
+    font-size: 20px;
     margin: 5px 0;
     height: 60px;
     position: relative; }
@@ -433,14 +441,16 @@ body {
     z-index: 11;
     position: relative;
     right: 10px;
-    top: 2vh;
+    top: 3vh;
     width: 30vw;
     margin-left: 80vw;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    object-fit: contain; }
   .community-icons img {
-    width: 20px;
-    height: auto; }
+    width: 30px;
+    height: auto;
+    object-fit: contain; }
   /* ======================================= Slider Effect ===================================== */
   /* ======================================= Search ===================================== */
   .search-input {
@@ -578,7 +588,7 @@ body {
     margin-bottom: 20px;
     height: auto; }
   .log-btn {
-    background: #c50e29;
+    background: #ff5252;
     color: white;
     text-decoration: none;
     padding: 1vh 2vh;

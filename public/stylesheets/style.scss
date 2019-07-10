@@ -62,6 +62,7 @@ $colorPanthera: (
   white: #fffdfd,
   button: #ebf1f1,
   almostWhite: #fdf3f3d7,
+  darkGrey: rgb(29,29,29),
 );
 
 $colorPantheraOld: (
@@ -485,6 +486,7 @@ font-size: 12px;
 
 .content-description {
   padding-left: 2vw;
+  color: map-get($colorPanthera, darkGrey)
 }
 
 /* ================================= Interests Bar ==================================== */
@@ -500,13 +502,13 @@ font-size: 12px;
 .interest-btn-all {
   border: none;
   border-radius: 3px;
-  border: 0.4px solid map-get($colorPanthera, primary);
+  border: 0.4px solid map-get($colorPanthera, dark);
   width: auto;
   height: auto;
   padding: 0 2vw;
   margin: 0 2vw;
-  color: map-get($colorPanthera, primary);
-  background-color: map-get($colorPanthera, button);
+  color: map-get($colorPanthera, dark);
+  background-color: map-get($colorPanthera, light);
   font-size: 12px;
 }
 
@@ -514,13 +516,13 @@ font-size: 12px;
   border:none;
   // border-radius: 3px;
   border-radius: 3px;
-  border: 0.4px solid map-get($colorPanthera, primary);
+  border: 0.4px solid map-get($colorPanthera, dark);
   width: auto;
   height: auto;
   padding: 1vw 2vw;
   margin: 0 2vw;
-  color: map-get($colorPanthera, primary);
-  background-color: map-get($colorPanthera, button);
+  color: map-get($colorPanthera, dark);
+  background-color: map-get($colorPanthera, light);
   font-size: 12px;
 }
 
@@ -629,6 +631,7 @@ font-size: 12px;
   // padding: 5px;
   position: relative;
   min-width: 90vw;
+  height: auto;
   border-bottom: solid 1px gray;
   margin: 0px 10px 10px 20px;
   display: flex;
@@ -639,7 +642,7 @@ font-size: 12px;
 
 .articlefeed p {
   text-align: justify;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
 }
 
 .publisher {
@@ -647,6 +650,16 @@ font-size: 12px;
   text-align: right;
   margin: 0;
   height: 40px;
+}
+
+.publisher p {
+  margin: 0;
+  padding: 0;
+}
+
+.publisher-link a {
+  text-decoration: none;
+  color: map-get($colorPanthera, dark );
 }
 
 .articlefeed img {
@@ -657,8 +670,8 @@ font-size: 12px;
 }
 
 .articlefeed h4 {
-  color: map-get($colorPanthera, veryDark );
-  font-size: 16px;
+  color: map-get($colorPanthera, darkGrey );
+  font-size: 20px;
   margin: 5px 0;
   height: 60px;
   position: relative;
@@ -675,16 +688,18 @@ font-size: 12px;
   z-index: 11;
   position: relative;
   right: 10px;
-  top: 2vh;
+  top: 3vh;
   width: 30vw;
   margin-left: 80vw;
   display: flex; 
   flex-direction: column;
+  object-fit: contain;
 }
 
 .community-icons img {
-  width: 20px;
+  width: 30px;
   height: auto;
+  object-fit: contain;
 }
 
 /* ======================================= Slider Effect ===================================== */
@@ -887,7 +902,7 @@ font-size: 12px;
 }
 
 .log-btn {
-  background: map-get($colorPanthera, dark );
+  background: map-get($colorPanthera, primary );
   color: white;
   text-decoration: none;
   padding: 1vh 2vh;
