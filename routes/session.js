@@ -4,7 +4,6 @@ const ensureLogin = require("connect-ensure-login");
 const User = require("../models/User");
 const Content = require("../models/Content");
 const getArticlesForInterest = require("../public/javascripts/newApi");
-const axios = require("axios")
 const hbs = require("hbs")
 
 

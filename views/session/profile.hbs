@@ -1,46 +1,43 @@
 <div class="parent-div">
-    <p><b>Hi {{user.firstName}}</p>
 
-    <img src="{{user.profilePicture}}" alt="">
+    <div class="profile">
 
-    <div class="tags-interests">
-        <p><b>My interests :</b></p>
-        {{#each user.interests}}
-        <span class="tag-interest">
-            <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
-        </span>
-        {{/each}}
+        <div class="profile-overview">
+            <div id="pr-img">
+                <img src="{{user.profilePicture}}" alt="">
+            </div>
+            <p>{{user.firstName}}</p>
+        </div>
+
+        <div class="tags-interests">
+            <p class="tag-title fancy"><span>My interests</span></p>
+            <div class="in-wrapper">
+                {{#each user.interests}}
+                <span class="tag-interest">
+                    <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
+                </span>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="add-interest">
+            <p class="tag-title fancy"><span>Add interest</span></p>
+            <form action="/session/profile" method="post" id="input-new-interests">
+                <label for=" interest"></label>
+                <img src="/images/plus.png" alt="">
+                <input type="text" name="interest">
+            </form>
+        </div>
+        
+        <a class="log-btn" href="/logout">Logout</a>
+        <a class="delete-btn" href="">Delete account</a>
+
     </div>
 
-    <form action="/session/profile" method="post" id="input-new-interests">
-        <label for=" interest">Add interests tags :</label>
-        <input type="text" name="interest">
-    </form>
-
+   
 </div>
 
 
 {{!-- //----------// --}}
 
 
-<style>
-    .tag-interest {
-        padding: 6px;
-        border-radius: 5px;
-        margin: 5px;
-        border: solid 1px gray
-    }
-
-    .tag-interest a {
-        text-decoration: none;
-        color: gray;
-    }
-
-    .tag-interest:hover,
-    .tag-interest a:hover {
-        text-decoration: none;
-        color: #fff;
-        background-color: rgb(255, 74, 74);
-        border: none
-    }
-</style>

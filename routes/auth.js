@@ -51,7 +51,7 @@ router.post("/signup", (req, res, next) => {
         const newUser = new User({
             firstName: username,
             fullName: username,
-            // username: username,
+            username: username,
             password: hashPass
         });
 
