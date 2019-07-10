@@ -40,7 +40,6 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
     res.redirect("/session/profile");
 })
 
-
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
     // let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
@@ -49,6 +48,7 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
     part: "snippet",
     maxResults: 1,
     q: 'tedx+'+el.split('').join('+'), 
+    videoDefinition: "standard",
   }).then(response => {
         return response.data.items.map(el=>el.id.videoId)
   }).catch(err => {
@@ -84,7 +84,8 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
        }) */
      
 
- 
+//  Activate this if you want to de-activate loading videos:
+
         let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
          function shuffle(a) {
          for (let i = a.length - 1; i > 0; i--) {

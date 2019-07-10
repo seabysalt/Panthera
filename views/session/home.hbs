@@ -21,8 +21,10 @@
     {{/each}}
 </div>
 
+
 <h2 class = "listening-header" >Listening</h2>
 <div class="listening-content-wrapper" style="height: 20vh">
+    {{!-- Remove style height above once you fill it with content --}}
     {{!-- {{#each ..}}
     {{> listeningPartial}}
     {{/each}} --}}
@@ -42,13 +44,20 @@
         <h4>{{this.title}}</h4>
         
         {{#unless this.urlToImage}}
-        <img class="cover" src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" width="100%" alt="">
+        <div class="community-icons">
+            <img src="/images/heart2.png" alt="like" style="padding-left: 20px">
+            <img src="/images/bookmark2.png" alt="bookmark" style="padding-top: 20px">
+        </div>
+        <img class="cover" src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" width="100%" alt="" style="border: 0.1px solid #0095a8">
         {{/unless}}
         {{#if this.urlToImage}}
-        <img src="{{this.urlToImage}}" width="100%" alt="">
+        <div class="community-icons">
+            <img class="like" src="/images/heart2.png" alt="like" style="padding-left: 20px">
+            <img class ="bookmark" src="/images/bookmark2.png" alt="bookmark"  style="padding-top: 20px">
+        </div>
+        <img src="{{this.urlToImage}}" width="100%" alt="" style="border: 0.5px solid #0095a8">
         {{/if}}
 
-        
         <p>{{this.description}}</p>
         <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
         <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>

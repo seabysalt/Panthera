@@ -149,7 +149,9 @@ body {
   color: #0095a8;
   margin: 10px 0 10px 20px;
   position: relative;
-  font-size: 16px; }
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid #0095a8; }
 
 .listening-content-wrapper {
   margin-left: 1vw;
@@ -159,12 +161,29 @@ body {
   justify-content: flex-start;
   align-items: space-between; }
 
+.listening-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  align-content: stretch;
+  width: 100%;
+  object-fit: contain; }
+
+.listening-head img {
+  width: 20px;
+  height: auto;
+  object-fit: contain;
+  padding-left: 30vw; }
+
 /* ==================================== Video Section =========================================== */
 .video-header {
   color: #0095a8;
   margin: 10px 0 10px 20px;
   position: relative;
-  font-size: 16px; }
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid #0095a8; }
 
 .video-content-wrapper {
   margin-left: 1vw;
@@ -202,7 +221,9 @@ body {
   color: #0095a8;
   margin: 10px 0 0px 20px;
   position: relative;
-  font-size: 16px; }
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid #0095a8; }
 
 .postRSSdiv {
   width: 400px; }
@@ -238,15 +259,30 @@ body {
 
 .articlefeed h4 {
   color: #018496;
-  font-size: 14px;
+  font-size: 16px;
   margin: 5px 0;
-  height: 60px; }
+  height: 60px;
+  position: relative; }
 
 .cover {
   border-radius: 10px;
   object-fit: cover;
   width: 100%;
   height: 30%; }
+
+.community-icons {
+  z-index: 11;
+  position: relative;
+  right: 10px;
+  top: 2vh;
+  width: 30vw;
+  margin-left: 80vw;
+  display: flex;
+  flex-direction: column; }
+
+.community-icons img {
+  width: 20px;
+  height: auto; }
 
 /* ======================================= Slider Effect ===================================== */
 /* ======================================= Search ===================================== */
