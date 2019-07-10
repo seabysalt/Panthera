@@ -19,6 +19,13 @@ const getMeetupEvent = tag => {
 
 hbs.registerHelper("stringify", (data) => JSON.stringify(data))
 
+const { google } = require("googleapis");
+
+const youtube = google.youtube({
+    version: "v3",
+    auth: "AIzaSyCAdVA09svpmj_RSTdTeMuOgvJ_7l4_dCc"
+});
+
 router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("session/profile", { User, user: req.user });
 });
@@ -51,11 +58,55 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
     res.redirect("/session/profile");
 })
 
-
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
-    res.send(getMeetupEvent('art'))
-    let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
 
+    // let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+
+    // let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
+
+    /*    let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
+       part: "snippet",
+       maxResults: 1,
+       q: 'tedx+'+el.split('').join('+'), 
+       videoDefinition: "standard",
+     }).then(response => {
+           return response.data.items.map(el=>el.id.videoId)
+     }).catch(err => {
+       console.log(err);
+     })
+      ) */
+
+    // Promise.all(mediumFeed).then((mediumData) => {
+    //     // get the video ids rs
+
+    /*  Promise.all(youtubeFeed).then((videoId)=>{
+ 
+        let newId = videoId.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el != undefined)
+ 
+        let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+         function shuffle(a) {
+         for (let i = a.length - 1; i > 0; i--) {
+             const j = Math.floor(Math.random() * (i + 1));
+             [a[i], a[j]] = [a[j], a[i]];
+            }
+         return a;
+        }
+ 
+     Promise.all(interestsFeed)
+         .then(feed => {
+             const feedArticles = (feed.reduce((acc, val) => {
+             return acc.concat(val.articles)
+             }, []))
+         res.render("session/home", { user: req.user, videoId:newId, feedArticles: shuffle(feedArticles).splice(0, 10)});
+     }).catch(err => {
+         console.log(err)
+     })
+        }) */
+
+
+    //  Activate this if you want to de-activate loading videos:
+
+    let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
     function shuffle(a) {
         for (let i = a.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -63,14 +114,17 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
         }
         return a;
     }
-    Promise.all(interestsFeed).then(feed => {
-        const feedArticles = (feed.reduce((acc, val) => {
-            return acc.concat(val.articles)
-        }, []))
-        res.render("session/home", { user: req.user, feedArticles: shuffle(feedArticles).splice(0, 10) });
-    }).catch(err => {
-        console.log(err)
-    })
+
+    Promise.all(interestsFeed)
+        .then(feed => {
+            const feedArticles = (feed.reduce((acc, val) => {
+                return acc.concat(val.articles)
+            }, []))
+            res.render("session/home", { user: req.user, feedArticles: shuffle(feedArticles).splice(0, 10) });
+        }).catch(err => {
+            console.log(err)
+        })
+
 });
 
 //######### LIKE BUTTON, | CREATE POST IN DB or IF ALREADY IN DB PUSH USER ID IN 'likedBy' #########

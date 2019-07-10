@@ -19,6 +19,7 @@
     "eventbrite": "^1.2.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "googleapis": "^40.0.1",
     "hbs": "^4.0.1",
     "meetup-api": "^1.4.38",
     "mongoose": "^5.2.10",
