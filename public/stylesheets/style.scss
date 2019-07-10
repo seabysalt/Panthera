@@ -40,6 +40,10 @@ $colorCoral: (
   primary: #ff5252,
   light: #ff867f,
   dark: #c50e29,
+  primaryT: #ff5252af,
+  lightT: #ff857fb2,
+  darkT: #c50e29c5,
+  almostWhite: #fdf3f3d7,
 );
 
 $colorBlue: (
@@ -68,7 +72,7 @@ html, body {
 body {
   font: 14px 'Noto Sans HK', sans-serif;
   position: relative;
-  height: auto;
+  height: 100%;
 }
 
 a {
@@ -91,22 +95,237 @@ a {
 
 @media (max-width:767px)  {
 
-/* ======================= Signup & Login Page =========================== */
-  .signup, .login {
-    margin: 40px 0 40px 0;
-    width: 70vw;
+/* ======================= Nav on Login & Sign Up Page =========================== */
+
+.nav-start-header{
+  background-color: map-get($colorCoral, light);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.dropdown img {
+  header img {
+    width: 50px;
     height: auto;
+    margin: 0px 0px 0px 0px;
+    justify-content: left;
+    align-self: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin-left: 15px;
+  }
+}
+
+.dropbtn {
+  background-color: rgba(179, 218, 217, 0);
+  box-shadow: 0 0 0 0;
+  color: rgba(255, 255, 255, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: auto;
+}
+
+.dropbtn:focus, .dropbtn:active, .dropbtnactive, .dropbtn:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  min-width: 80px;
+  z-index: 1;
+  left: 0px;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: rgb(255, 253, 238);
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  margin: 0;
+}
+
+.dropdown-content a:hover {background-color: rgb(179,218,217)}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: none;
+}
+
+/* ================================= Login Content ========================================== */
+.page-content {
+  height: 100%;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.login-box h2 {
+  color: white;
+}
+
+  .signup, .login {
+    border: 1px solid map-get($colorCoral, primary);
+    border-radius: 3px;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background-color: non;
-    border: 0.05px solid rgb(205, 211, 239);
-    box-shadow: 0 0 3px rgb(205, 211, 239);
-    border-radius: 3px; 
-    font-size: 12px;
-    color: map-get($colors, primary);
+    align-self: center;
+    height: 100%;
+    background-color: map-get($colorCoral, light);
+    // margin: 40px 0 40px 0;
+    // width: 70vw;
+    // height: auto;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // background-color: non;
+    // border: 0.05px solid rgb(205, 211, 239);
+    // box-shadow: 0 0 3px rgb(205, 211, 239);
+    // border-radius: 3px; 
+    // font-size: 12px;
+    // color: map-get($colors, primary);
   }
+
+  #form-container {
+    margin: 15vh 0 5vh 0;
+    // border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+    color: white;
+    background-color: map-get($colorCoral, primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex start;
+    align-items: center;
+  }
+
+  #form-container input {
+    border: none;
+    border-radius: 3px;
+    width: 30vw;
+    color: map-get($colorCoral, dark );
+    padding-left: 8px;
+  }
+
+  // #form-container input::placeholder {
+  //   color: map-get($colorCoral, dark);
+  // }
+
+  .login-btn {
+    background: map-get($colorCoral, darkT );
+    color: white;
+    text-decoration: none;
+    padding: 1.5vh 2vh;
+    border-radius: 3px;
+    border: none;
+    align-self: center;
+    margin-top: 10px;
+    // text-transform: uppercase;
+    }
+
+.fb-btn {
+background-color: white;
+color: map-get($colors, midblue );
+text-decoration: none;
+padding: 1vh 2vh;
+border-radius: 3px;
+margin-left: 20px;
+font-size: 12px;
+}
+
+.social-login {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.social-login img {
+  object-fit: contain;
+  width: 30px;
+  height: auto;
+}
+
+.username, .password {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: space-evenly;
+  width: 100%;
+}
+
+.username input {
+  background-color: white;
+  margin-left: 20px;
+  color: map-get($colorCoral, dark )
+}
+
+.username input::placeholder {
+  background-color: white;
+  margin-left: 20px;
+  color: map-get($colorCoral, dark )
+}
+
+.password input {
+  background-color: white;
+  margin-left: 23px;
+  color: map-get($colorCoral, dark )
+}
+
+.account-message {
+  text-align: center;
+  align-self: center;
+  color: map-get($colorCoral, dark);
+}
+
+.account-message a {
+  text-align: center;
+  align-self: center;
+  color: map-get($colorCoral, primary);
+  text-decoration: none;
+  padding: 5px;
+  border: 0.5px solid map-get($colorCoral, primary);
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.emphasis {
+  margin: 0 2vw;
+  background-color: white;
+  color: map-get($colorPanthera, dark );
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* ======================= Layout.hbs =========================== */
@@ -426,3 +645,4 @@ a {
   height: 40px;
 }
 
+}

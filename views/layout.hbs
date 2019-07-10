@@ -12,13 +12,17 @@
 <body>
   {{#unless user}}
   <div class="nav-start-header">
-    <nav>
-
-      <a href="/auth/login">Login</a>
-      <a href="/auth/signup">Signup</a>
-      <a href="/auth/logout">Logout</a>
-
-    </nav>
+    <div class="dropdown">
+          <button class="dropbtn"><img src='/images/panthera2.png' alt="Panthera Logo" class="logo"></button>
+          <div class="dropdown-content">
+            <nav>
+              <a href="/auth/login">Login</a>
+              <a href="/auth/signup">Signup</a>
+              <a href="/auth/logout">Logout</a>
+            </nav>
+          </div>
+      </div>
+    <h1>Panthera</h1>
   </div>
   {{/unless}}
 

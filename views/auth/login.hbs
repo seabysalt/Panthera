@@ -1,28 +1,41 @@
 <div class="login">
-  <h2>Login</h2>
+  <div class="login-box">
+    {{!-- <h2>Login</h2> --}}
 
-  <form action="/auth/login" method="POST" id="form-container">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" placeholder="Your username">
+      <form action="/auth/login" method="POST" id="form-container">
+      <div class="username">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" placeholder="Your username">
+      </div>
+      
+        <br><br>
 
-    <br><br>
+      <div class="password">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Your password">
+      </div>
+        <br>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Your password">
-    <br>
-    {{#if message }}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
+        <br><br>
 
-    <br><br>
+        <div class="emphasis">
+          <button class="login-btn">Login</button>
 
-    <button>Login</button>
-
-    <p class="account-message">
-      Don't have an account yet?
-      <a href="/auth/signup">Signup</a>
-    </p>
-  </form>
+          <p class="account-message">
+              Don't have an account yet? <br><br>
+              <a href="/auth/signup">Sign up</a>
+          </p>
+        </div>
+        
+      </form>
+    <div class="social-login">
+      <img src="/images/fb2.png" alt="">
+      <a class="fb-btn" href="/auth/facebook">Log in via Facebook</a>
+    </div>
+  </div>
+  
+  
 </div>
-
-<a href="/auth/facebook">Log in via Facebook</a>
