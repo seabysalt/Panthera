@@ -23,7 +23,7 @@ body {
 @media (max-width: 767px) {
   /* ======================= Nav on Login & Sign Up Page =========================== */
   .nav-start-header {
-    background-color: #ff857f;
+    background-color: #c50e29;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,7 +35,7 @@ body {
     height: 10vh; }
   .nav-start-header h1 {
     text-transform: uppercase;
-    color: #c50e29;
+    color: white;
     font-size: 20px;
     padding-right: 30px;
     align-self: center;
@@ -48,7 +48,7 @@ body {
     align-content: flex-start;
     align-items: flex-start; }
   .dropbtn {
-    background-color: #ff857fb2;
+    background-color: #c50e29;
     box-shadow: 0 0 0 0;
     color: #ff857fb2;
     font-size: 16px;
@@ -70,7 +70,8 @@ body {
     width: 50px; }
   .dropdown-content {
     position: absolute;
-    top: 8vh;
+    padding-left: 10px;
+    top: 10vh;
     left: 0;
     display: none;
     min-width: 80px;
@@ -126,16 +127,18 @@ body {
     background: linear-gradient(to left top, #c50e29 50%, #ff5252 50%);
     display: flex;
     flex-direction: column;
-    justify-content: flex start;
-    align-items: center; }
+    justify-content: flex start; }
   #form-container input {
     border: none;
     border-radius: 3px;
     width: 30vw;
     color: #c50e29;
     padding-left: 8px; }
+  #form-container input::placeholder {
+    color: #c50e29;
+    font-size: 12px; }
   .login-btn, .signup-btn {
-    background: #c50e29c5;
+    background: #c50e29;
     color: white;
     text-decoration: none;
     padding: 1.5vh 2vh;
@@ -270,7 +273,6 @@ body {
     position: fixed;
     height: 5vh;
     top: 9vh;
-    border-bottom: 1vh solid white;
     z-index: 10; }
   .main-nav img {
     height: 3vh;
@@ -294,7 +296,7 @@ body {
     color: #1d1d1d; }
   /* ================================= Interests Bar ==================================== */
   .interests-bar {
-    margin: 0vw 0 2vw 1vw;
+    margin: 0vw 0 3vw 1vw;
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
@@ -310,7 +312,7 @@ body {
     margin: 0 2vw;
     color: #c50e29;
     background-color: #ff857f;
-    font-size: 12px; }
+    font-size: 13px; }
   .interest-btn {
     border: none;
     border-radius: 3px;
@@ -321,7 +323,7 @@ body {
     margin: 0 2vw;
     color: #c50e29;
     background-color: #ff857f;
-    font-size: 12px; }
+    font-size: 13px; }
   /* ================================= Listening Section ==================================== */
   .listening-header {
     color: #c50e29;
@@ -413,8 +415,7 @@ body {
   .publisher {
     width: 100%;
     text-align: right;
-    margin: 0;
-    height: 40px; }
+    margin: 0; }
   .publisher p {
     margin: 0;
     padding: 0; }

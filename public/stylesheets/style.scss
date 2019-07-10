@@ -112,7 +112,7 @@ a {
 /* ======================= Nav on Login & Sign Up Page =========================== */
 
 .nav-start-header{
-  background-color: map-get($colorCoral, light2);
+  background-color: map-get($colorCoral, dark);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -128,7 +128,7 @@ a {
 
 .nav-start-header h1 {
   text-transform: uppercase;
-  color: map-get($colorCoral, dark);
+  color: white;
   font-size: 20px;
   padding-right: 30px;
   // padding-top: 10px;
@@ -146,7 +146,7 @@ a {
 }
 
 .dropbtn {
-  background-color: map-get($colorCoral, lightT);
+  background-color: map-get($colorCoral, dark);
   box-shadow: 0 0 0 0;
   color: map-get($colorCoral, lightT);
   font-size: 16px;
@@ -174,7 +174,8 @@ a {
 
 .dropdown-content {
   position: absolute;
-  top: 8vh;
+  padding-left: 10px;
+  top: 10vh;
   left:0;
   display: none;
   min-width: 80px;
@@ -244,7 +245,6 @@ a {
 
   #form-container {
     margin: 15vh 0 5vh 0;
-    // border: 1px solid white;
     border-radius: 5px;
     padding: 10px 10px 0 10px;
     color: white;
@@ -253,7 +253,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex start;
-    align-items: center;
+    // align-items: center;
   }
 
   #form-container input {
@@ -264,12 +264,13 @@ a {
     padding-left: 8px;
   }
 
-  // #form-container input::placeholder {
-  //   color: map-get($colorCoral, dark);
-  // }
+  #form-container input::placeholder {
+    color: map-get($colorCoral, dark);
+    font-size: 12px;
+  }
 
   .login-btn, .signup-btn {
-    background: map-get($colorCoral, darkT);
+    background: map-get($colorCoral, dark);
     color: white;
     text-decoration: none;
     padding: 1.5vh 2vh;
@@ -446,7 +447,6 @@ font-size: 12px;
   position: fixed;
   height: 5vh;
   top: 9vh;
-  border-bottom: 1vh solid white;
   z-index: 10;
 }
 
@@ -492,7 +492,7 @@ font-size: 12px;
 /* ================================= Interests Bar ==================================== */
 
 .interests-bar {
-  margin: 0vw 0 2vw 1vw;
+  margin: 0vw 0 3vw 1vw;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -509,7 +509,7 @@ font-size: 12px;
   margin: 0 2vw;
   color: map-get($colorPanthera, dark);
   background-color: map-get($colorPanthera, light);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .interest-btn {
@@ -523,7 +523,7 @@ font-size: 12px;
   margin: 0 2vw;
   color: map-get($colorPanthera, dark);
   background-color: map-get($colorPanthera, light);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* ================================= Listening Section ==================================== */
@@ -649,7 +649,7 @@ font-size: 12px;
   width:100%;
   text-align: right;
   margin: 0;
-  height: 40px;
+  // height: 40px;
 }
 
 .publisher p {
