@@ -7,7 +7,7 @@
     <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
 </div>
 
-{{!-- 
+
 <div class="main-content-wrapper">
     {{#each user.interests}}
     {{> mainPartial}}
@@ -18,7 +18,7 @@
     {{#each user.interests}}
     {{> youtubePartial}}
     {{/each}}
-</div> --}}
+</div>
 
 
 
@@ -29,13 +29,25 @@
 {{#each feedArticles}}
 <div class="articlefeed">
     <h4>{{this.title}}</h4>
-    <p>by <span style="color: gray">{{this.author}}</span> on <span style="color: coral">{{this.source.name}}</span></p>
+    <p>by <span style="color: gray">{{this.author}}</span> on <span
+            style="color: coral">{{this.source.name}}</span><span>
+            <button onclick="like(`{{stringify this}}`)">like</button>
+            {{!-- <a href="/session/like/{{this.url}}">like</a> --}}
+        </span>
+    </p>
     <img src="{{this.urlToImage}}" width="100%" alt="">
     <p>{{this.description}}</p>
     <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>
 </div>
 {{/each}}
 
+<script>
+    const like = (article) => {
+        axios.post("/session/content/like", { article: article }).then(response => {
+            console.log(response)
+        })
+    }
+</script>
 
 <style>
     .postRSSdiv {

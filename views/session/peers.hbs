@@ -12,16 +12,25 @@
 </div>
 <div class="main-content-wrapper">
 
-<h3>Feed filtered by my peers interests</h3>
-<p>( here comes the feed filtered by my peers pref ordered by most shared interests )</p>
+  <h3>Feed filtered by my peers interests</h3>
+  <p>( here comes the feed filtered by my peers pref ordered by most shared interests )</p>
 
-<h3>They share the same interests :</h3>
+  <h3>They share the same interests :</h3>
 
-{{#if sameInterestUsers}}
-{{#each sameInterestUsers}}
+  {{#if sameInterestUsers}}
+  {{#each sameInterestUsers}}
 
-<li>{{this.fullName}}</li>
+  <li>{{this.fullName}}</li>
 
-{{/each}}
-{{/if}}
+  {{/each}}
+  {{/if}}
+
+  <h3>They liked :</h3>
+  {{#if articlesLikedByUsers}}
+  {{#each articlesLikedByUsers}}
+
+  {{{this.article}}}
+
+  {{/each}}
+  {{/if}}
 </div>
