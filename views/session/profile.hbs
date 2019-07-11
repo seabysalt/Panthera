@@ -1,10 +1,11 @@
 <div class="parent-div">
-    <p><b>Hi {{user.firstName}}</p>
 
-    <img src="{{user.profilePicture}}" alt="">
+    <div id="profile-head">
+        <img src="{{user.profilePicture}}" alt="">
+        <h2>hello {{user.firstName}}</h2>
+    </div>
 
     <div class="tags-interests">
-        <p><b>My interests :</b></p>
         {{#each user.interests}}
         <span class="tag-interest">
             <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
@@ -13,22 +14,46 @@
     </div>
 
     <form action="/session/profile" method="post" id="input-new-interests">
-        <label for=" interest">Add interests tags :</label>
+        <label for=" interest">+ </label>
         <input type="text" name="interest">
     </form>
-
+    {{!-- <h4>You liked</h4>
+    {{#if preParsed}}
+    {{#each preParsed}}
+    {{this.title}}
+    {{/each}}
+    {{/if}} --}}
 </div>
-
 
 {{!-- //----------// --}}
 
-
 <style>
+    #profile-head {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center
+    }
+
+    #profile-head img {
+        width: 30%;
+        border-radius: 50%;
+        /*border: solid 5px lightcoral;*/
+        margin: auto;
+    }
+
+    .tag-interests {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+
     .tag-interest {
         padding: 6px;
         border-radius: 5px;
         margin: 5px;
-        border: solid 1px gray
+        border: solid 1px gray;
+        text-align: center;
     }
 
     .tag-interest a {

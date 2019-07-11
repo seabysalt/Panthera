@@ -71,7 +71,9 @@
             <div class="community-icons">
                 <button onclick="like(`{{stringify this}}`)"><img src="/images/heart2.png" alt="like"
                         style="padding-left: 20px"></button>
-                <img class="bookmark" src="/images/bookmark2.png" alt="bookmark" style="padding-top: 20px">
+
+                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark2.png"
+                        alt="bookmark" style="padding-top: 20px"></button>
             </div>
             <img src="{{this.urlToImage}}" width="100%" alt="" style="border: 0.5px solid #0095a8">
             {{/if}}
@@ -90,6 +92,11 @@
 <script>
     const like = (article) => {
         axios.post("/session/content/like", { article: article }).then(response => {
+            console.log(response)
+        })
+    }
+    const bookmark = (article) => {
+        axios.post("/session/content/bookmark", { article: article }).then(response => {
             console.log(response)
         })
     }

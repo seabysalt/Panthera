@@ -13,6 +13,6 @@ const getArticlesForInterest = (interest, language) => {
     }).catch(err => {
         console.log(err)
     });
-}
+};
 
 module.exports = getArticlesForInterest;
