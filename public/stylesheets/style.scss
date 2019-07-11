@@ -253,6 +253,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex start;
+    height: auto;
     // align-items: center;
   }
 
@@ -268,6 +269,34 @@ a {
     color: map-get($colorCoral, dark);
     font-size: 12px;
   }
+
+.form-animation:hover{
+    transform: scale(1.1);
+    transition: all ease 500ms;
+  }
+
+  // $form-animation: map-get($colorCoral, dark);
+
+  // .form-animation {
+  //   animation: 1s ease infinite pulse;
+  // }
+
+  // @keyframes pulse {
+  //   0% {
+  //     // background: $form-animation;
+  //     transform: scale(1);
+  //   }
+    
+  //   25% {
+  //     // background: darken($form-animation, 10%);
+  //     transform: scale(1.015);
+  //   }
+    
+  //   50% {
+  //     // background: $form-animation;
+  //     transform: scale(1);
+  //   }
+  // }
 
   .login-btn, .signup-btn {
     background: map-get($colorCoral, dark);
