@@ -442,7 +442,7 @@ font-size: 12px;
 
 #sticky-footer {
   background-color: map-get($colorPanthera, primary);;
-  width: 90vw;
+  width: 95vw;
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -450,9 +450,21 @@ font-size: 12px;
   align-content: space-between;
   height: 5vh;
   top:95vh;
-  margin: 0 5vw 0 5vw;
+  margin: 0 2.5vw 0 2.5vw;
   border-radius: 3px;
 }
+
+// #sticky-footer-wrapper {
+//   background-color: white;
+//   width: 100vw;
+//   display: flex;
+//   flex-direction: row;
+//   position: fixed;
+//   justify-content: space-between;
+//   align-content: space-between;
+//   height: 5vh;
+//   top:95vh;
+// }
 
 #sticky-footer img {
   height: 3vh;
@@ -462,7 +474,17 @@ font-size: 12px;
 
 .profilePicture {
   border-radius: 50%;
+  // border: 1px solid #c50e29;
+  // width: 2vw;
+  // height: 2vw;
 }
+
+// .profilePicture2 {
+//   border-radius: 50%;
+//   border: 1px solid #c50e29;
+//   width: 10vw;
+//   height: 10vw;
+// }
 
 /* ======================= home.hbs =========================== */
 .main-nav {
@@ -580,14 +602,14 @@ font-size: 12px;
 .interest-btn-all {
   border: none;
   border-radius: 3px;
-  border: 0.4px solid map-get($colorPanthera, dark);
+  border: 1px solid map-get($colorPanthera, dark);
   width: auto;
   height: auto;
   padding: 0 2vw;
   margin: 0 2vw;
   color: map-get($colorPanthera, dark);
-  background-color: map-get($colorPanthera, light);
-  font-size: 13px;
+  background-color: map-get($colorPanthera, white);
+  font-size: 14px;
 }
 
 .interest-btn {
@@ -597,11 +619,11 @@ font-size: 12px;
   border: 0.4px solid map-get($colorPanthera, dark);
   width: auto;
   height: auto;
-  padding: 1vw 2vw;
+  padding: 2vw 2vw;
   margin: 0 2vw;
   color: map-get($colorPanthera, dark);
   background-color: map-get($colorPanthera, light);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* ================================= Listening Section ==================================== */
@@ -680,7 +702,7 @@ font-size: 12px;
 /* ================================= Reading Section ==================================== */
 
 .reading-content-wrapper {
-  margin: 3vw 0 2vw 1vw;
+  margin: 3vw 2vw 2vw 2vw;
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -830,12 +852,15 @@ font-size: 12px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100%;
+  position: relative;
 }
 .profile-overview {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 #pr-img {
@@ -860,6 +885,13 @@ font-size: 12px;
 
 .profile-overview img {
   object-fit: contain;
+  background-color: map-get($colorPanthera, primary);
+  border: 3px solid map-get($colorPanthera, dark);
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .profile-overview p {
@@ -930,11 +962,15 @@ font-size: 12px;
   margin-left: 15px;
 }
 
-// .in-wrapper {
-//   display: flex;
-//   flex-flow: row-wrap;
-//   height: auto;
-// }
+.in-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 4vh;
+
+}
 
 .tags-interests p {
   font-size: 16px;
@@ -953,6 +989,11 @@ font-size: 12px;
   color: map-get($colorPanthera, dark);
 }
 
+.in-wrapper span {
+  // margin-bottom: 50px;
+  // height: 0px;
+}
+ 
 .tag-interest {
   border: 1px solid map-get($colorPanthera, darkT);
   margin-left: 2px;
@@ -1013,15 +1054,18 @@ font-size: 12px;
 }
 
 .delete-btn {
-  background: map-get($colorCoral, darkT );
-  color: white;
+  // background: map-get($colorCoral, darkT );
+  // color: white;
+  // text-decoration: none;
+  // padding: 1vh 2vh;
+  // border-radius: 3px;
+  // border: none;
+  // align-self: center;
+  // margin-top: 10px;
+  // font-size: 12px;
+  color: map-get($colorCoral, darkT );
   text-decoration: none;
-  padding: 1vh 2vh;
-  border-radius: 3px;
-  border: none;
-  align-self: center;
-  margin-top: 10px;
-  font-size: 12px;
+  margin: 5vh 0 10vh 0;
 }
 
 
