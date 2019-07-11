@@ -645,6 +645,7 @@ font-size: 12px;
   overflow-x: scroll;
   justify-content: flex-start;
   align-items: space-between;
+  height: auto;
 }
 
 .reading-header {
@@ -653,7 +654,8 @@ font-size: 12px;
   position: relative;
   font-size: 16px;
   text-transform: uppercase;
-  border-bottom: 0.5px solid map-get($colorPanthera, dark)
+  border-bottom: 0.5px solid map-get($colorPanthera, dark);
+  z-index: 7;
  }
 
  .postRSSdiv {
@@ -670,7 +672,7 @@ font-size: 12px;
   min-width: 90vw;
   height: auto;
   // border-bottom: solid 1px gray;
-  margin: 0px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -686,7 +688,7 @@ font-size: 12px;
   width:100%;
   text-align: right;
   margin: 0;
-  // height: 40px;
+  height: 40px;
 }
 
 .publisher p {
@@ -704,13 +706,19 @@ font-size: 12px;
   object-fit: cover;
   width:100%;
   height: 30%;
+  margin-top: 1vh;
 }
 
 .articlefeed h4 {
   color: map-get($colorPanthera, darkGrey );
   font-size: 20px;
-  margin: 5px 0;
-  height: 60px;
+  margin: 2vh 0 0 0;
+  max-height: 50vh;
+  position: relative;
+  z-index: 8;
+}
+
+.article-desc {
   position: relative;
 }
 
@@ -722,21 +730,33 @@ font-size: 12px;
 }
 
 .community-icons {
-  z-index: 11;
-  position: relative;
-  right: 10px;
-  top: 3vh;
-  width: 30vw;
-  margin-left: 80vw;
+  position: absolute;
+  right: 3vw;
+  top: -1vh;
+  width: 10vw;
+  margin-left: 70vw;
   display: flex; 
   flex-direction: column;
   object-fit: contain;
+  z-index: 8;
 }
 
 .community-icons img {
   width: 30px;
   height: auto;
   object-fit: contain;
+}
+
+.test {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  padding-right: 5vw;
+}
+
+.like {
+  width: 12vw;
 }
 
 /* ======================================= Slider Effect ===================================== */

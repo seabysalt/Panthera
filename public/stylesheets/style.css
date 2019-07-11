@@ -395,14 +395,16 @@ body {
     flex-direction: row;
     overflow-x: scroll;
     justify-content: flex-start;
-    align-items: space-between; }
+    align-items: space-between;
+    height: auto; }
   .reading-header {
     color: #c50e29;
     margin: 10px 0 0 15px;
     position: relative;
     font-size: 16px;
     text-transform: uppercase;
-    border-bottom: 0.5px solid #c50e29; }
+    border-bottom: 0.5px solid #c50e29;
+    z-index: 7; }
   .postRSSdiv {
     width: 400px; }
   .postRSSdiv img {
@@ -411,7 +413,7 @@ body {
     position: relative;
     min-width: 90vw;
     height: auto;
-    margin: 0px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -422,7 +424,8 @@ body {
   .publisher {
     width: 100%;
     text-align: right;
-    margin: 0; }
+    margin: 0;
+    height: 40px; }
   .publisher p {
     margin: 0;
     padding: 0; }
@@ -433,12 +436,16 @@ body {
     border-radius: 10px;
     object-fit: cover;
     width: 100%;
-    height: 30%; }
+    height: 30%;
+    margin-top: 1vh; }
   .articlefeed h4 {
     color: #1d1d1d;
     font-size: 20px;
-    margin: 5px 0;
-    height: 60px;
+    margin: 2vh 0 0 0;
+    max-height: 50vh;
+    position: relative;
+    z-index: 8; }
+  .article-desc {
     position: relative; }
   .cover {
     border-radius: 10px;
@@ -446,19 +453,27 @@ body {
     width: 100%;
     height: 30%; }
   .community-icons {
-    z-index: 11;
-    position: relative;
-    right: 10px;
-    top: 3vh;
-    width: 30vw;
-    margin-left: 80vw;
+    position: absolute;
+    right: 3vw;
+    top: -1vh;
+    width: 10vw;
+    margin-left: 70vw;
     display: flex;
     flex-direction: column;
-    object-fit: contain; }
+    object-fit: contain;
+    z-index: 8; }
   .community-icons img {
     width: 30px;
     height: auto;
     object-fit: contain; }
+  .test {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    padding-right: 5vw; }
+  .like {
+    width: 12vw; }
   /* ======================================= Slider Effect ===================================== */
   /* ======================================= Search ===================================== */
   .search-input {
