@@ -298,6 +298,12 @@ body {
   .content-description {
     padding-left: 2vw;
     color: #1d1d1d; }
+  .content-description h5 {
+    color: #1d1d1d;
+    font-size: 20px;
+    margin: 10px 0;
+    height: 60px;
+    position: relative; }
   /* ================================= Interests Bar ==================================== */
   .interests-bar {
     margin: 0vw 0 3vw 1vw;
@@ -331,7 +337,7 @@ body {
   /* ================================= Listening Section ==================================== */
   .listening-header {
     color: #c50e29;
-    margin: 10px 0 10px 20px;
+    margin: 10px 0 10px 15px;
     position: relative;
     font-size: 16px;
     text-transform: uppercase;
@@ -359,7 +365,7 @@ body {
   /* ==================================== Video Section =========================================== */
   .video-header {
     color: #c50e29;
-    margin: 10px 0 10px 20px;
+    margin: 10px 0 10px 15px;
     position: relative;
     font-size: 16px;
     text-transform: uppercase;
@@ -376,14 +382,12 @@ body {
     flex-direction: column;
     min-width: 90vw;
     margin: 0 5vw;
-    border: 1px solid #e1f0f1;
-    border-radius: 3px;
-    box-shadow: 0 0 3px #e1f0f1; }
+    border-radius: 3px; }
   .content-video iframe {
     height: auto;
     width: 80vw;
     object-fit: contain;
-    align-self: center; }
+    align-self: flex-start; }
   /* ================================= Reading Section ==================================== */
   .reading-content-wrapper {
     margin: 3vw 0 2vw 1vw;
@@ -394,7 +398,7 @@ body {
     align-items: space-between; }
   .reading-header {
     color: #c50e29;
-    margin: 10px 0 0px 20px;
+    margin: 10px 0 0 15px;
     position: relative;
     font-size: 16px;
     text-transform: uppercase;
@@ -407,8 +411,7 @@ body {
     position: relative;
     min-width: 90vw;
     height: auto;
-    border-bottom: solid 1px gray;
-    margin: 0px 10px 10px 20px;
+    margin: 0px 10px 10px 10px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
