@@ -4,28 +4,29 @@
   <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
   <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
-<div class="main-content-wrapper">
-  <br><br><br><br><br><br><br>
+
+<div class="parent-div">
+  <div class="main-content-wrapper">
+
+    <h1 class="pb-header">Blog</h1>
+    {{#each posts}}
+    <div class="blog-post">
 
 
-  <h1>Panthera</h1>
-  {{#each posts}}
-  <div class="blog-post">
+      <div class="author">
+        <span><img class="author-pic" src="{{this.authorPic}}" {{!--{{this.authorPic}}--}} alt=" "></span>
+        by <span class="blog-author">{{this.author}}</span>
+      </div>
+      <h2>{{this.title}}</h2>
+      <div class="blog-img">
+        <img src={{this.urlToImage}} alt=" ">
+      </div>
+      <p>{{this.description}}</p>
+      <a href={{this.url}}>read more...</a>
 
-
-    <div class="author">
-      <span><img class="author-pic" src="{{this.authorPic}}" {{!--{{this.authorPic}}--}} alt=" "></span>
-      by <span class="blog-author">{{this.author}}</span>
     </div>
-    <h2>{{this.title}}</h2>
-    <div class="blog-img">
-      <img src={{this.urlToImage}} alt=" ">
-    </div>
-    <p>{{this.description}}</p>
-    <a href={{this.url}}>read more...</a>
-
+    {{/each}}
   </div>
-  {{/each}}
 </div>
 
 <style>

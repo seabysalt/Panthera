@@ -10,31 +10,31 @@
   <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
   <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
+
+<div class="parent-div">
+
 <div class="main-content-wrapper">
-  <br><br><br><br><br><br><br>
 
-
-
-
-
-  <h1>People also liked</h1>
-  {{#if articlesLikedByUsers}}
-  {{#each articlesLikedByUsers}}
-  <div class="blog-post">
-    {{#each this.likingUserPic}}
-    <img class="author-pic" src={{this}} {{!--{{this.authorPic}}--}} alt=" ">
-    {{/each}}
-    <h2>{{this.article.title}}</h2>
-    {{#if this.article.author}}by <span class="blog-author">{{this.article.author}}</span> on
-    {{this.article.source.name}}{{/if}}
-    <div class="blog-img">
-      <img src={{this.article.urlToImage}} alt=" ">
+    <h1 class="pb-header">People also liked</h1>
+    {{#if articlesLikedByUsers}}
+    {{#each articlesLikedByUsers}}
+    <div class="blog-post">
+      {{#each this.likingUserPic}}
+      <img class="author-pic" src={{this}} {{!--{{this.authorPic}}--}} alt=" ">
+      {{/each}}
+      <h2>{{this.article.title}}</h2>
+      {{#if this.article.author}}by <span class="blog-author">{{this.article.author}}</span> on
+      {{this.article.source.name}}{{/if}}
+      <div class="blog-img">
+        <img src={{this.article.urlToImage}} alt=" ">
+      </div>
+      <p>{{this.article.description}}</p>
+      <a href={{this.article.url}}>read more...</a>
     </div>
-    <p>{{this.article.description}}</p>
-    <a href={{this.article.url}}>read more...</a>
+    {{/each}}
+    {{/if}}
   </div>
-  {{/each}}
-  {{/if}}
+
 </div>
 
 

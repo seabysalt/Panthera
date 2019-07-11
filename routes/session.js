@@ -12,10 +12,10 @@ hbs.registerHelper("stringify", (data) => JSON.stringify(data))
 
 const { google } = require("googleapis");
 
-const youtube = google.youtube({
-    version: "v3",
-    auth: "AIzaSyCAdVA09svpmj_RSTdTeMuOgvJ_7l4_dCc"
-});
+// const youtube = google.youtube({
+//     version: "v3",
+//     auth: "AIzaSyCAdVA09svpmj_RSTdTeMuOgvJ_7l4_dCc"
+// });
 
 router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
     res.render("session/profile", { user: req.user });
