@@ -4,3 +4,96 @@
   <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
   <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
+<div class="main-content-wrapper">
+  <br><br><br><br><br><br><br>
+
+
+  <h1>Panthera</h1>
+  {{#each posts}}
+  <div class="blog-post">
+
+
+    <div class="author">
+      <span><img class="author-pic" src="{{this.authorPic}}" {{!--{{this.authorPic}}--}} alt=" "></span>
+      by <span class="blog-author">{{this.author}}</span>
+    </div>
+    <h2>{{this.title}}</h2>
+    <div class="blog-img">
+      <img src={{this.urlToImage}} alt=" ">
+    </div>
+    <p>{{this.description}}</p>
+    <a href={{this.url}}>read more...</a>
+
+  </div>
+  {{/each}}
+</div>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .blog-post {
+    margin: 10px 5px;
+    padding: 7px;
+
+    border-radius: 7px;
+  }
+
+  .blog-post h2 {
+    color: rgb(29, 29, 29)
+  }
+
+  .blog-post p {
+    padding: 6px;
+    text-align: justify;
+  }
+
+  .blog-post a {
+    float: right;
+    color: #C50E29;
+    text-decoration: none;
+  }
+
+  .author {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /*line-height: 70px;*/
+  }
+
+  .blog-author {
+    color: #C50E29;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  .author-pic {
+    background-color: gray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin-right: 5px;
+  }
+
+  .author-pic img {
+    text-align: center;
+  }
+
+  .blog-img {
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .blog-img img {
+    width: 100%;
+    border-radius: 7px;
+  }
+</style>

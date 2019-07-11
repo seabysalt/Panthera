@@ -4,6 +4,7 @@ const ensureLogin = require("connect-ensure-login");
 const User = require("../models/User");
 const Content = require("../models/Content");
 const Bookmark = require("../models/Bookmark");
+const Blog = require("../models/Blog")
 const getArticlesForInterest = require("../public/javascripts/newApi");
 const hbs = require("hbs")
 
@@ -17,20 +18,8 @@ const youtube = google.youtube({
 });
 
 router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
-    // SAME WITH Bookmark MODEL
-    Content.find({ likedBy: req.user.id }).then(likedArticlesRaw => {
-        const likedArticles = likedArticlesRaw.map(x => x.article)
-        function escapeSpecialChars(jsonString) {
-            return jsonString.replace(/\n/g, "\\n")
-                .replace(/\r/g, "\\r")
-                .replace(/\t/g, "\\t")
-                .replace(/\f/g, "\\f");
-        }
-        const preParsed = likedArticles.map(x => JSON.parse(escapeSpecialChars(x)))
-        res.render("session/profile", { user: req.user, preParsed, /*bookmarkedArticles*/ });
-    }).catch(err => { console.log(err) })
+    res.render("session/profile", { user: req.user });
 });
-
 
 router.post("/profile", (req, res) => {
     const interest = req.body.interest;
@@ -44,6 +33,7 @@ router.post("/profile", (req, res) => {
         })
     }
 })
+
 router.get('/profile/deleteInterest/:interestId', (req, res) => {
     console.log(req.params)
     User.findByIdAndUpdate(req.user.id, {
@@ -74,9 +64,9 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
     //   ) 
 
     // Promise.all(youtubeFeed).then((videoObj) => {
- 
+
     //     let newObj = videoObj.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el.videoId != undefined)
- 
+
     //     let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
     //      function shuffle(a) {
     //      for (let i = a.length - 1; i > 0; i--) {
@@ -102,7 +92,6 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
 
     //  Activate this if you want to de-activate loading videos:
-
     let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
     function shuffle(a) {
         for (let i = a.length - 1; i > 0; i--) {
@@ -126,6 +115,8 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
 // Active until here for only articles
 
+// });
+
 
 //######### LIKE BUTTON, | CREATE POST IN DB or IF ALREADY IN DB PUSH USER ID IN 'likedBy' #########
 router.post("/content/like", (req, res) => {
@@ -133,17 +124,19 @@ router.post("/content/like", (req, res) => {
     const userId = req.user.id;
 
     Content.findOne({ article: content }).then(match => {
-        if (match) {
+        if (match && !match.likedBy.includes(userId)) {
             const updatedLikedBy = match.likedBy.concat(userId);
             match.update({ likedBy: updatedLikedBy }).then(() => { console.log("Updated") }).catch(err => { console.log(err) })
         }
         else {
-            Content.create({ article: content, likedBy: [userId] }).then(newArticle => {
+            Content.create({ article: JSON.parse(content), likedBy: [userId], likingUserPic: [req.user.profilePicture] }).then(newArticle => {
                 console.log(newArticle)
             }).catch(err => { console.log(err) })
         }
     }).catch(err => { console.log(err) })
 })
+
+//######### NEW LIKE BUTTON, | CREATE POST IN DB or IF ALREADY IN DB PUSH USER ID IN 'likedBy' #########
 
 router.post("/content/bookmark", (req, res) => {
     const content = req.body.article;
@@ -162,12 +155,13 @@ router.post("/content/bookmark", (req, res) => {
     }).catch(err => { console.log(err) })
 })
 
-
-
-
-
-
-
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
 
 //########### PEERS
 router.get("/peers", (req, res) => {
@@ -176,24 +170,10 @@ router.get("/peers", (req, res) => {
         const sameInterestUsers = users.filter(obj => obj.id !== req.user.id)
         const sameInterestUsersId = sameInterestUsers.map(x => x.id)
         //---
-
-
-
-
-
         Content.find({ 'likedBy': { '$in': sameInterestUsersId } }).then(likedArticlesRaw => {
-            const likedArticles = likedArticlesRaw.map(x => x.article)
-            function escapeSpecialChars(jsonString) {
-                return jsonString.replace(/\n/g, "\\n")
-                    .replace(/\r/g, "\\r")
-                    .replace(/\t/g, "\\t")
-                    .replace(/\f/g, "\\f");
-            }
-            const preParsed = likedArticles.map(x => JSON.parse(escapeSpecialChars(x)))
-            res.render("session/peers", { user: req.user, sameInterestUsers, articlesLikedByUsers: preParsed });
+            likedArticlesRaw = shuffle(likedArticlesRaw).splice(0, 20)
+            res.render("session/peers", { user: req.user, sameInterestUsers, articlesLikedByUsers: likedArticlesRaw });
         }).catch(err => console.log(err))
-        //---
-        // res.render("session/peers", { user: req.user, sameInterestUsers });
     }).catch(err => {
         console.log(err)
     })
@@ -201,13 +181,6 @@ router.get("/peers", (req, res) => {
 
 router.get("/featured", (req, res) => {
     let featuredFeed = ['learning', 'tech', 'future', 'art'].map(el => getArticlesForInterest(el, 'en'))
-    function shuffle(a) {
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a;
-    }
     Promise.all(featuredFeed)
         .then(feed => {
             const feedArticles = (feed.reduce((acc, val) => {
@@ -220,11 +193,47 @@ router.get("/featured", (req, res) => {
 })
 
 router.get("/blog", (req, res) => {
-    res.render("session/blog", { user: req.user });
+    Blog.find().then(posts => {
+        res.render("session/blog", { user: req.user, posts });
+    })
 })
 
 router.get("/search", (req, res) => {
     res.render("session/search", { user: req.user });
 })
 
+
+
+
+
+
+
+
+// router.get("/postB", (req, res) => {
+//     Blog.create({ title: 'title' }).then(data => {
+//         // console.log(data)
+//         res.send(data)
+//         //res.render("session/blog", { user: req.user, posts })
+//     }).catch(err => console.log(err))
+
+// })
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+            // console.log(likedArticlesRaw[2].article)
+            // const likedArticles = likedArticlesRaw.splice(3, 1).map(x => x.article)
+            // function escapeSpecialChars(jsonString) {
+            //     return jsonString.replace(/\n/g, "\\n")
+            //         .replace(/\r/g, "\\r")
+            //         .replace(/\t/g, "\\t")
+            //         .replace(/\f/g, "\\f")
+            // }
+            // const preParsed = likedArticles.map(x => JSON.parse(escapeSpecialChars(x)))
