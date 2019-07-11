@@ -84,6 +84,8 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
      })
         }) */
     //  Activate this if you want to de-activate loading videos:
+
+
     let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
     function shuffle(a) {
         for (let i = a.length - 1; i > 0; i--) {
@@ -124,22 +126,22 @@ router.post("/content/like", (req, res) => {
 
 //######### NEW LIKE BUTTON, | CREATE POST IN DB or IF ALREADY IN DB PUSH USER ID IN 'likedBy' #########
 
-router.post("/content/bookmark", (req, res) => {
-    const content = req.body.article;
-    const userId = req.user.id;
+// router.post("/content/bookmark", (req, res) => {
+//     const content = req.body.article;
+//     const userId = req.user.id;
 
-    Bookmark.findOne({ article: content }).then(match => {
-        if (match) {
-            const updatedBookmarkedBy = match.bookmarkedBy.concat(userId);
-            match.update({ bookmarkedBy: updatedBookmarkedBy }).then(() => { console.log("Updated") }).catch(err => { console.log(err) })
-        }
-        else {
-            Bookmark.create({ article: content, bookmarkedBy: [userId] }).then(newArticle => {
-                console.log(newArticle)
-            }).catch(err => { console.log(err) })
-        }
-    }).catch(err => { console.log(err) })
-})
+//     Bookmark.findOne({ article: content }).then(match => {
+//         if (match) {
+//             const updatedBookmarkedBy = match.bookmarkedBy.concat(userId);
+//             match.update({ bookmarkedBy: updatedBookmarkedBy }).then(() => { console.log("Updated") }).catch(err => { console.log(err) })
+//         }
+//         else {
+//             Bookmark.create({ article: content, bookmarkedBy: [userId] }).then(newArticle => {
+//                 console.log(newArticle)
+//             }).catch(err => { console.log(err) })
+//         }
+//     }).catch(err => { console.log(err) })
+// })
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -203,6 +205,19 @@ router.get("/search", (req, res) => {
 //     }).catch(err => console.log(err))
 
 // })
+
+
+router.get('/copydb', (req, res) => {
+    User.find().then(users => {
+        Content.find().then(content => {
+            Blog.find().then(data => {
+                res.send(data)
+            }).catch(err => console.log(err))
+        }).catch(err => console.log(err))
+    }).catch(err => console.log(err))
+})
+
+
 
 module.exports = router;
 

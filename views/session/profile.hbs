@@ -3,9 +3,19 @@
     <div class="profile">
 
         <div class="profile-overview">
-            <div id="pr-img">
+            <div id="pr-img" onclick="changeProfilePicture()">
                 <img src="{{user.profilePicture}}" alt="">
             </div>
+            {{!-- UPLOAD PIC --}}
+            <div class="uploadProfilePic" style="display: none">
+                <h2>Upload your photo</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name">
+                    <input type="file" name="photo">
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+            {{!-- END  --}}
             <p>{{user.firstName}}</p>
         </div>
 
@@ -53,9 +63,16 @@
         background-color: #fff;
         border-radius: 10px;
     }
+
+    #pr-img:hover {
+        cursor: pointer;
+    }
 </style>
 <script>
     const deleteAccount = () => {
         document.querySelector("#delete-prompt").style.display = 'block';
     }
+    //const changeProfilePicture = () => {
+    //    alert("chenge")
+    //}
 </script>

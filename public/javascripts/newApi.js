@@ -1,5 +1,5 @@
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('63a43c5845cd443599625634e9c40818');
+const newsapi = new NewsAPI('c152890d9bb245729e2f2b432ebb1794');
 
 
 const getArticlesForInterest = (interest, language) => {
@@ -14,5 +14,6 @@ const getArticlesForInterest = (interest, language) => {
         console.log(err)
     });
 };
+
 
 module.exports = getArticlesForInterest;
