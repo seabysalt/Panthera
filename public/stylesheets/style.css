@@ -630,12 +630,23 @@ body {
     padding: 4px;
     color: #c50e29; }
   .tag-interest {
-    border: 1px solid #c50e29c5;
     margin-left: 2px;
     padding: 6px;
     border-radius: 3px;
     margin: 5px;
     border: 1px solid #c50e29; }
+  .my-tags {
+    margin-left: 2px;
+    padding: 6px;
+    border-radius: 3px;
+    margin: 5px;
+    border: 1px solid #c50e29;
+    color: white;
+    background-color: #c50e29; }
+  .my-tags a {
+    text-decoration: none;
+    padding: 4px;
+    color: white; }
   #input-new-interests {
     display: flex;
     flex-direction: row;
@@ -672,7 +683,7 @@ body {
     border-radius: 3px;
     border: none;
     align-self: center;
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 12px; }
   .delete-btn {
     color: #c50e29c5;
@@ -1252,7 +1263,8 @@ body {
     text-align: center; }
   .fancy span {
     display: inline-block;
-    position: relative; }
+    position: relative;
+    height: 30px; }
   .fancy span:before,
   .fancy span:after {
     content: "";

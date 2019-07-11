@@ -1002,12 +1002,27 @@ font-size: 12px;
 }
  
 .tag-interest {
-  border: 1px solid map-get($colorPanthera, darkT);
   margin-left: 2px;
   padding: 6px;
   border-radius: 3px;
   margin: 5px;
   border: 1px solid map-get($colorPanthera, dark);
+}
+
+.my-tags {
+  margin-left: 2px;
+  padding: 6px;
+  border-radius: 3px;
+  margin: 5px;
+  border: 1px solid map-get($colorPanthera, dark);
+  color: white;
+  background-color: map-get($colorPanthera, dark)
+}
+
+.my-tags a {
+  text-decoration: none;
+  padding: 4px;
+   color: white;
 }
 
 #input-new-interests {
@@ -1056,7 +1071,7 @@ font-size: 12px;
   border-radius: 3px;
   border: none;
   align-self: center;
-  margin-top: 10px;
+  margin: 10px 0;
   font-size: 12px;
 }
 
@@ -1917,6 +1932,7 @@ font-size: 12px;
 .fancy span {
   display: inline-block;
   position: relative;  
+  height: 30px;
 }
 .fancy span:before,
 .fancy span:after {
