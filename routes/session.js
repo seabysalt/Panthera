@@ -62,24 +62,25 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
     // let mediumFeed = [...req.user.interests].map(el => getRSS("https://medium.com/feed/tag/", el));
 
-    /*    let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
+    let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
        part: "snippet",
        maxResults: 1,
        q: 'tedx+'+el.split('').join('+'), 
-       videoDefinition: "standard",
+    //    videoDefinition: "standard",
      }).then(response => {
-           return response.data.items.map(el=>el.id.videoId)
+         console.log(response.data.items)
+           return response.data.items.map(el=> ({videoId: el.id.videoId, title: el.snippet.title}))
      }).catch(err => {
        console.log(err);
      })
-      ) */
+      ) 
 
     // Promise.all(mediumFeed).then((mediumData) => {
-    //     // get the video ids rs
+       // get the video ids rs
 
-    /*  Promise.all(youtubeFeed).then((videoId)=>{
+    Promise.all(youtubeFeed).then((videoObj) => {
  
-        let newId = videoId.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el != undefined)
+        let newObj = videoObj.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el.videoId != undefined)
  
         let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
          function shuffle(a) {
@@ -95,35 +96,35 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
              const feedArticles = (feed.reduce((acc, val) => {
              return acc.concat(val.articles)
              }, []))
-         res.render("session/home", { user: req.user, videoId:newId, feedArticles: shuffle(feedArticles).splice(0, 10)});
+         res.render("session/home", { user: req.user, videoObj:newObj, feedArticles: shuffle(feedArticles).splice(0, 10)});
      }).catch(err => {
          console.log(err)
      })
-        }) */
-
+        })
+    });
 
     //  Activate this if you want to de-activate loading videos:
 
-    let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
-    function shuffle(a) {
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a;
-    }
+//     let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+//     function shuffle(a) {
+//         for (let i = a.length - 1; i > 0; i--) {
+//             const j = Math.floor(Math.random() * (i + 1));
+//             [a[i], a[j]] = [a[j], a[i]];
+//         }
+//         return a;
+//     }
 
-    Promise.all(interestsFeed)
-        .then(feed => {
-            const feedArticles = (feed.reduce((acc, val) => {
-                return acc.concat(val.articles)
-            }, []))
-            res.render("session/home", { user: req.user, feedArticles: shuffle(feedArticles).splice(0, 10) });
-        }).catch(err => {
-            console.log(err)
-        })
+//     Promise.all(interestsFeed)
+//         .then(feed => {
+//             const feedArticles = (feed.reduce((acc, val) => {
+//                 return acc.concat(val.articles)
+//             }, []))
+//             res.render("session/home", { user: req.user, feedArticles: shuffle(feedArticles).splice(0, 10) });
+//         }).catch(err => {
+//             console.log(err)
+//         })
 
-});
+//  });
 
 
 
