@@ -26,34 +26,31 @@
     <div class="reading-content-wrapper">
         {{#each feedArticles}}
         <div class="articlefeed">
-            <h4>{{this.title}}</h4>
-
             {{#unless this.urlToImage}}
             <div class="community-icons">
-                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"
-                        style="padding-right: 23px"></button>
                 <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
-                        alt="bookmark" style="padding-top: 20px"></button>
+                        alt="bookmark" ></button>
             </div>
             <img class="cover"
                 src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                width="100%" alt="" style="border: 0.1px solid #ff5252">
+                width="100%" alt="">
             {{/unless}}
             {{#if this.urlToImage}}
             <div class="community-icons">
-                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"
-                        style="padding-right: 23px"></button>
                 <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
-                        alt="bookmark" style="padding-top: 20px"></button>
+                        alt="bookmark" ></button>
             </div>
-            <img src="{{this.urlToImage}}" width="100%" alt="" style="border: 0.5px solid #ff5252">
+            <img src="{{this.urlToImage}}" width="100%" alt="" >
             {{/if}}
-
-            <p>{{this.description}}</p>
-            <p class="publisher-link"><a href="{{this.url}}">Read more...</a></p>
-            <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span
-                    style="color: coral">{{this.source.name}}</span></p>
-
+                <h4>{{this.title}}</h4>
+                <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span
+                        style="color: coral">{{this.source.name}}</span></p>
+                <p class="article-desc">{{this.description}}</p>
+            <div class="test">
+                <p class="publisher-link"><a href="{{this.url}}">Read more...</a></p>
+                <button class="like" onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"></button>
+            </div>
+                
         </div>
         {{/each}}
     </div>
@@ -61,22 +58,18 @@
     {{!-- VIDEO --}}
     <h2 class="video-header">Watching</h2>
     <div class="video-content-wrapper">
-        {{#each videoId}}
+        {{#each videoObj}}
         {{> youtubePartial}}
         {{/each}}
     </div>
 
     {{!-- LISTENING --}}
     <h2 class="listening-header">Listening</h2>
-    <div class="listening-content-wrapper" style="height: 20vh">
-        {{!-- Remove style height above once you fill it with content --}}
-        {{!-- {{#each ..}}
-    {{> listeningPartial}}
-    {{/each}} --}}
+    <div class="listening-content-wrapper">
+        {{!-- {{#each}} --}}
+            {{> listeningPartial}}
+        {{!-- {{/each}} --}}
     </div>
-
-
-
 
 </div>
 

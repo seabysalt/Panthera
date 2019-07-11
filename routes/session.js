@@ -48,41 +48,49 @@ router.get('/profile/deleteInterest/:interestId', (req, res) => {
 
 router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
 
-    /*    let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
-       part: "snippet",
-       maxResults: 1,
-       q: 'tedx+'+el.split('').join('+'), 
-       videoDefinition: "standard",
-     }).then(response => {
-           return response.data.items.map(el=>el.id.videoId)
-     }).catch(err => {
-       console.log(err);
-     })
-      ) */
+    // Beginning of activation for video
+
+    // let youtubeFeed = [...req.user.interests].map(el => youtube.search.list({
+    //    part: "snippet",
+    //    maxResults: 1,
+    //    q: 'tedx+'+el.split('').join('+'), 
+    // //    videoDefinition: "standard",
+    //  }).then(response => {
+    //      console.log(response.data.items)
+    //        return response.data.items.map(el=> ({videoId: el.id.videoId, title: el.snippet.title}))
+    //  }).catch(err => {
+    //    console.log(err);
+    //  })
+    //   ) 
+
+    // Promise.all(youtubeFeed).then((videoObj) => {
+
+    //     let newObj = videoObj.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el.videoId != undefined)
+
+    //     let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
+    //      function shuffle(a) {
+    //      for (let i = a.length - 1; i > 0; i--) {
+    //          const j = Math.floor(Math.random() * (i + 1));
+    //          [a[i], a[j]] = [a[j], a[i]];
+    //         }
+    //      return a;
+    //     }
+ 
+    //  Promise.all(interestsFeed)
+    //      .then(feed => {
+    //          const feedArticles = (feed.reduce((acc, val) => {
+    //          return acc.concat(val.articles)
+    //          }, []))
+    //      res.render("session/home", { user: req.user, videoObj:newObj, feedArticles: shuffle(feedArticles).splice(0, 10)});
+    //  }).catch(err => {
+    //      console.log(err)
+    //  })
+    //     })
+    // });
+
+    // End of thing to activation for video
 
 
-    /*  Promise.all(youtubeFeed).then((videoId)=>{
- 
-        let newId = videoId.reduce((acc,val)=>acc.concat(val),[]).filter(el=>el != undefined)
- 
-        let interestsFeed = [...req.user.interests].map(el => getArticlesForInterest(el, 'en'))
-         function shuffle(a) {
-         for (let i = a.length - 1; i > 0; i--) {
-             const j = Math.floor(Math.random() * (i + 1));
-             [a[i], a[j]] = [a[j], a[i]];
-            }
-         return a;
-        }
-     Promise.all(interestsFeed)
-         .then(feed => {
-             const feedArticles = (feed.reduce((acc, val) => {
-             return acc.concat(val.articles)
-             }, []))
-         res.render("session/home", { user: req.user, videoId:newId, feedArticles: shuffle(feedArticles).splice(0, 10)});
-     }).catch(err => {
-         console.log(err)
-     })
-        }) */
     //  Activate this if you want to de-activate loading videos:
 
 
@@ -104,7 +112,13 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
         }).catch(err => {
             console.log(err)
         })
-});
+
+ });
+
+// Active until here for only articles
+
+// });
+
 
 //######### LIKE BUTTON, | CREATE POST IN DB or IF ALREADY IN DB PUSH USER ID IN 'likedBy' #########
 router.post("/content/like", (req, res) => {

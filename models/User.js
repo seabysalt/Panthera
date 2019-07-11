@@ -23,7 +23,7 @@ const userSchema = new Schema({
   },
   interests: {
     type: [String],
-    default: 'Music'
+    default: 'Tech'
     // enum: possibleInterests,
   },
   websites: {
@@ -41,7 +41,7 @@ const userSchema = new Schema({
 
   profilePicture: {
     type: String, // by Gmail
-    default: '/images/panthera5.png'
+    default: '/images/panthera8.png'
   },
   skills: [String],
   devBudget: Number, // by HR admin
