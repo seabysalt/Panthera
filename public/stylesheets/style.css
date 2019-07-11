@@ -304,6 +304,37 @@ body {
     margin: 10px 0;
     height: 60px;
     position: relative; }
+  .listening-content {
+    width: 100%;
+    align-self: center;
+    margin: 0vh 3vw 2vh 3vw;
+    margin-bottom: 5vh;
+    position: relative; }
+  .listening-content h5 {
+    color: #1d1d1d;
+    font-size: 20px;
+    margin: 10px 0;
+    height: 60px;
+    position: relative; }
+  .listening-content img {
+    width: 100%;
+    display: flex;
+    margin: 2vh 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .listening-play-btn img {
+    position: absolute;
+    width: 20vw;
+    left: 40%;
+    top: 20%; }
+  .listening-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0; }
   /* ================================= Interests Bar ==================================== */
   .interests-bar {
     margin: 0vw 0 3vw 1vw;
