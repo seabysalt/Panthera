@@ -11,26 +11,99 @@
   <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
 <div class="main-content-wrapper">
+  <br><br><br><br><br><br><br>
 
-  <h3>Feed filtered by my peers interests</h3>
-  <p>( here comes the feed filtered by my peers pref ordered by most shared interests )</p>
 
-  <h3>They share the same interests :</h3>
 
-  {{#if sameInterestUsers}}
-  {{#each sameInterestUsers}}
 
-  <li>{{this.fullName}}</li>
 
-  {{/each}}
-  {{/if}}
-
-  <h3>They liked :</h3>
+  <h1>People also liked</h1>
   {{#if articlesLikedByUsers}}
   {{#each articlesLikedByUsers}}
-
-  {{{this.article}}}
-
+  <div class="blog-post">
+    {{#each this.likingUserPic}}
+    <img class="author-pic" src={{this}} {{!--{{this.authorPic}}--}} alt=" ">
+    {{/each}}
+    <h2>{{this.article.title}}</h2>
+    {{#if this.article.author}}by <span class="blog-author">{{this.article.author}}</span> on
+    {{this.article.source.name}}{{/if}}
+    <div class="blog-img">
+      <img src={{this.article.urlToImage}} alt=" ">
+    </div>
+    <p>{{this.article.description}}</p>
+    <a href={{this.article.url}}>read more...</a>
+  </div>
   {{/each}}
   {{/if}}
 </div>
+
+
+<style>
+  h1 {
+    text-align: center
+  }
+
+  .blog-post {
+    margin: 10px 5px;
+    padding: 7px;
+
+    border-radius: 7px;
+  }
+
+  .blog-post h2 {
+    color: rgb(29, 29, 29)
+  }
+
+  .blog-post p {
+    padding: 6px;
+    text-align: justify;
+  }
+
+  .blog-post a {
+    float: right;
+    color: #C50E29;
+    text-decoration: none;
+  }
+
+  .author {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /*line-height: 70px;*/
+  }
+
+  .blog-author {
+    color: #C50E29;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  .author-pic {
+    background-color: gray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin-right: 5px;
+  }
+
+  .author-pic img {
+    text-align: center;
+  }
+
+  .blog-img {
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .blog-img img {
+    width: 100%;
+    border-radius: 7px;
+  }
+</style>

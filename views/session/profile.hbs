@@ -29,12 +29,33 @@
             </form>
         </div>
 
-        <a class="log-btn" href="/logout">Logout</a>
-        <a class="delete-btn" href="">Delete account</a>
+        <a class="log-btn" href="/auth/logout">Logout</a>
+        <button onclick="deleteAccount()" style="color: red">{{!--<a class="delete-btn" href="#">  --}}Delete account
+            {{!--</a>  --}}</button>
+
+        <div id="delete-prompt" style="display: none">
+            <h3>Are you sure you want to delete your account {{user.firstname}} ?</h3>
+            <p>Sad to see you go :(</p>
+            <button><a href="/auth/logout">Yes</a></button>
+            <button><a href="/session/profile">No</a></button>
+        </div>
 
     </div>
 
-
 </div>
 
-{{!-- //----------// --}}
+<style>
+    #delete-prompt {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+</style>
+<script>
+    const deleteAccount = () => {
+        document.querySelector("#delete-prompt").style.display = 'block';
+    }
+</script>

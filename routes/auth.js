@@ -67,8 +67,14 @@ router.post("/signup", (req, res, next) => {
 
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/auth/login");
 });
 
+router.get("/delete", (req, res) => {
+    User.deleteOne({ id: req.user.id }).then(() => {
+        console.log('User has been deleted');
+        res.redirect("/auth/signup")
+    })
+})
 
 module.exports = router;
