@@ -1,71 +1,40 @@
 <div class="parent-div">
 
-    <div id="profile-head">
-        <img src="{{user.profilePicture}}" alt="">
-        <h2>hello {{user.firstName}}</h2>
+    <div class="profile">
+
+        <div class="profile-overview">
+            <div id="pr-img">
+                <img src="{{user.profilePicture}}" alt="">
+            </div>
+            <p>{{user.firstName}}</p>
+        </div>
+
+        <div class="tags-interests">
+            <p class="tag-title fancy"><span>My interests</span></p>
+            <div class="in-wrapper">
+                {{#each user.interests}}
+                <span class="tag-interest">
+                    <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
+                </span>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="add-interest">
+            <p class="tag-title fancy"><span>Add interest</span></p>
+            <form action="/session/profile" method="post" id="input-new-interests">
+                <label for=" interest"></label>
+                <img src="/images/plus.png" alt="">
+                <input type="text" name="interest">
+            </form>
+        </div>
+
+        <a class="log-btn" href="/logout">Logout</a>
+        <a class="delete-btn" href="">Delete account</a>
+
     </div>
 
-    <div class="tags-interests">
-        {{#each user.interests}}
-        <span class="tag-interest">
-            <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
-        </span>
-        {{/each}}
-    </div>
 
-    <form action="/session/profile" method="post" id="input-new-interests">
-        <label for=" interest">+ </label>
-        <input type="text" name="interest">
-    </form>
-    {{!-- <h4>You liked</h4>
-    {{#if preParsed}}
-    {{#each preParsed}}
-    {{this.title}}
-    {{/each}}
-    {{/if}} --}}
 </div>
 
 {{!-- //----------// --}}
-
-<style>
-    #profile-head {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        text-align: center
-    }
-
-    #profile-head img {
-        width: 30%;
-        border-radius: 50%;
-        /*border: solid 5px lightcoral;*/
-        margin: auto;
-    }
-
-    .tag-interests {
-        text-align: center;
-        margin: auto;
-        width: 100%;
-    }
-
-    .tag-interest {
-        padding: 6px;
-        border-radius: 5px;
-        margin: 5px;
-        border: solid 1px gray;
-        text-align: center;
-    }
-
-    .tag-interest a {
-        text-decoration: none;
-        color: gray;
-    }
-
-    .tag-interest:hover,
-    .tag-interest a:hover {
-        text-decoration: none;
-        color: #fff;
-        background-color: rgb(255, 74, 74);
-        border: none
-    }
-</style>

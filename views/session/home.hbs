@@ -1,18 +1,19 @@
 {{!---------------------------- Filter by Interest ----------------------------------}}
 
 <div class="main-nav">
-    <a href="/session/home"><img src="../images/yourInterests.png" alt="Home"></a>
-    <a href="/session/peers"><img src="../images/peers.png" alt="Peers"></a>
-    <a href="/session/featured"><img src="../images/new.png" alt="Featured"></a>
-    <a href="/session/blog"><img src="../images/blog.png" alt="Blog"></a>
+    <a href="/session/home"><img src="../images/heart3.png" alt="Home"></a>
+    <a href="/session/peers"><img src="../images/peers2.png" alt="Peers"></a>
+    <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
+    <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
-
 
 {{!-- <div class="main-content-wrapper">
     {{#each user.interests}}
     {{> mainPartial}}
     {{/each}}
 </div> --}}
+
+
 <div class="parent-div">
     <div class="interests-bar">
         <button class="interest-btn-all" type="submit">All</button>
@@ -20,35 +21,6 @@
         <button class="interest-btn" type="submit">{{this}}</button>
         {{/each}}
     </div>
-
-    <h2 class="listening-header">Listening</h2>
-    <div class="listening-content-wrapper" style="height: 20vh">
-        {{!-- Remove style height above once you fill it with content --}}
-        {{!-- {{#each ..}}
-    {{> listeningPartial}}
-    {{/each}} --}}
-    </div>
-
-    {{!-- {{#each feedArticles}}
-    <div class="articlefeed">
-        <h4>{{this.title}}</h4>
-        <p>by <span style="color: gray">{{this.author}}</span> on <span
-                style="color: coral">{{this.source.name}}</span><span>
-                <button onclick="like(`{{stringify this}}`)">like</button>
-                {{!-- <a href="/session/like/{{this.url}}">like</a> --}}
-    {{!-- </span>
-        </p>
-        <img src="{{this.urlToImage}}" width="100%" alt="">
-        <p>{{this.description}}</p>
-        <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p> --}}
-
-    <h2 class="video-header">Watching</h2>
-    <div class="video-content-wrapper">
-        {{#each videoId}}
-        {{> youtubePartial}}
-        {{/each}}
-    </div>
-
 
     <h2 class="reading-header">Reading</h2>
     <div class="reading-content-wrapper">
@@ -58,33 +30,53 @@
 
             {{#unless this.urlToImage}}
             <div class="community-icons">
-                {{!-- <img src="/images/heart2.png" alt="like" style="padding-left: 20px"> --}}
-                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart2.png" alt="like"
-                        style="padding-left: 20px"></button>
-                <img src="/images/bookmark2.png" alt="bookmark" style="padding-top: 20px">
+                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"
+                        style="padding-right: 23px"></button>
+                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
+                        alt="bookmark" style="padding-top: 20px"></button>
             </div>
             <img class="cover"
                 src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                width="100%" alt="" style="border: 0.1px solid #0095a8">
+                width="100%" alt="" style="border: 0.1px solid #ff5252">
             {{/unless}}
             {{#if this.urlToImage}}
             <div class="community-icons">
-                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart2.png" alt="like"
-                        style="padding-left: 20px"></button>
-
-                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark2.png"
+                <button onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"
+                        style="padding-right: 23px"></button>
+                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
                         alt="bookmark" style="padding-top: 20px"></button>
             </div>
-            <img src="{{this.urlToImage}}" width="100%" alt="" style="border: 0.5px solid #0095a8">
+            <img src="{{this.urlToImage}}" width="100%" alt="" style="border: 0.5px solid #ff5252">
             {{/if}}
 
             <p>{{this.description}}</p>
+            <p class="publisher-link"><a href="{{this.url}}">Read more...</a></p>
             <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span
                     style="color: coral">{{this.source.name}}</span></p>
-            <p><span style="border-bottom: 1px solid black">{{this.url}}</span></p>
+
         </div>
         {{/each}}
     </div>
+
+    {{!-- VIDEO --}}
+    <h2 class="video-header">Watching</h2>
+    <div class="video-content-wrapper">
+        {{#each videoId}}
+        {{> youtubePartial}}
+        {{/each}}
+    </div>
+
+    {{!-- LISTENING --}}
+    <h2 class="listening-header">Listening</h2>
+    <div class="listening-content-wrapper" style="height: 20vh">
+        {{!-- Remove style height above once you fill it with content --}}
+        {{!-- {{#each ..}}
+    {{> listeningPartial}}
+    {{/each}} --}}
+    </div>
+
+
+
 
 </div>
 
@@ -101,9 +93,3 @@
         })
     }
 </script>
-
-
-
-{{!-- // --}}
-{{!-- <h3>Feed filtered by my own interests</h3> --}}
-{{!-- <p>( here comes the feed filtered by pref: {{user.interests}} )</p> --}}

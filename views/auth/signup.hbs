@@ -1,27 +1,47 @@
 <div class="signup">
-  <h2>Signup</h2>
+  <div class="login-box"></div>
+    {{!-- <h2>Signup</h2> --}}
 
-  <form action="/auth/signup" method="POST" id="form-container">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" placeholder="Choose a username">
+    <form action="/auth/signup" method="POST" id="form-container" class="form-animation">
+    <div class="username">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="Choose a username">
+    </div>
+      
+      <br><br>
 
-    <br><br>
+    <div class="password">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Choose a password">
+    </div>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Choose a password">
-    <br>
-    {{#if message }}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
+      <br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-    <br><br>
+      <br><br>
+      <div class="emphasis">
+          <button class="signup-btn">Create account</button>
 
-    <button class="login-btn">Create account</button>
+          <p class="account-message">
+              Do you already have an account? <br><br>
+              <a href="/auth/login">Login</a>
+          </p>
+        </div>
+    </form>
 
-    <p class="account-message">
-      Do you already have an account?
-      <a href="/auth/login">Login</a>
-      <a class="fb-btn" href="/auth/facebook">Sign up via Facebook</a>
-    </p>
-  </form>
+    <div class="social-login">
+      <div class="fb-login">
+        <img src="/images/fb2.png" alt="">
+        <a class="fb-btn" href="/auth/facebook">Sign up via Facebook</a>
+      </div>
+      <div class="gmail-login">
+        <img src="/images/gmail.png" alt="">
+        <a class="fb-btn" href="">Sign up via Gmail</a>
+      </div>
+    </div>
+    
+
+  </div>
 </div>
