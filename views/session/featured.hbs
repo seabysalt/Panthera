@@ -1,20 +1,20 @@
 <div class="main-nav">
-  <a href="/session/home"><img src="../images/heart3.png" alt="Home"></a>
-  <a href="/session/peers"><img src="../images/peers2.png" alt="Peers"></a>
-  <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
-  <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
+    <a href="/session/home"><img src="../images/heart3.png" alt="Home"></a>
+    <a href="/session/peers"><img src="../images/peers2.png" alt="Peers"></a>
+    <a href="/session/featured"><img src="../images/new2.png" alt="Featured"></a>
+    <a href="/session/blog"><img src="../images/blog2.png" alt="Blog"></a>
 </div>
 
 <div class="parent-div">
 
- <h2 class="reading-header">Reading</h2>
+    <h2 class="reading-header">Reading</h2>
     <div class="reading-content-wrapper">
         {{#each news}}
         <div class="articlefeed">
             {{#unless this.urlToImage}}
             <div class="community-icons">
-                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
-                        alt="bookmark" ></button>
+                <button class="bookmark" onclick="bookmark(`{{stringify this}}`)"><img src="/images/bookmark3.png"
+                        alt="bookmark"></button>
             </div>
             <img class="cover"
                 src="https://images.unsplash.com/photo-1552844920-9ebfbf44db66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
@@ -22,20 +22,21 @@
             {{/unless}}
             {{#if this.urlToImage}}
             <div class="community-icons">
-                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
-                        alt="bookmark" ></button>
+                <button class="bookmark" onclick="bookmark(`{{stringify this}}`)"><img src="/images/bookmark3.png"
+                        alt="bookmark"></button>
             </div>
-            <img src="{{this.urlToImage}}" width="100%" alt="" >
+            <img src="{{this.urlToImage}}" width="100%" alt="">
             {{/if}}
-                <h4>{{this.title}}</h4>
-                <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span
-                        style="color: coral">{{this.source.name}}</span></p>
-                <p class="article-desc">{{this.description}}</p>
+            <h4>{{this.title}}</h4>
+            <p class="publisher">by <span style="color: gray">{{this.author}}</span> on <span
+                    style="color: coral">{{this.source.name}}</span></p>
+            <p class="article-desc">{{this.description}}</p>
             <div class="test">
                 <p class="publisher-link"><a href="{{this.url}}">Read more...</a></p>
-                <button class="like" onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png" alt="like"></button>
+                <button class="like" onclick="like(`{{stringify this}}`)"><img src="/images/heart4.png"
+                        alt="like"></button>
             </div>
-                
+
         </div>
         {{/each}}
     </div>
