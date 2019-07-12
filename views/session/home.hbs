@@ -78,10 +78,13 @@
 <script>
 
     const like = (article) => {
+        const btn = document.querySelector(".like");
+        btn.style.display = 'none';
         axios.post("/session/content/like", { article: article }).then(response => {
             console.log(response)
+
         })
-        document.querySelector(".like").style.display = 'none';
+
     }
 
 
