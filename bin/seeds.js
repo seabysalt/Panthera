@@ -4,9 +4,9 @@
 // $ node bin/seeds.js
 
 const mongoose = require("mongoose");
-const User = require("./models/User")
-const Content = require("./models/Content")
-const Blog = require("./models/Blog")
+const User = require("../models/User")
+const Content = require("../models/Content")
+const Blog = require("../models/Blog")
 // const bcrypt = require("bcrypt");
 // const User = require("../models/User");
 
