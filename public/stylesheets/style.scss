@@ -695,6 +695,7 @@ font-size: 12px;
   width: 80vw;
   object-fit: contain;
   align-self: flex-start;
+  margin-top: 10px;
 }
 
 /* ================================= Reading Section ==================================== */
@@ -860,7 +861,7 @@ font-size: 12px;
   align-items: center;
   min-height: 100%;
   position: relative;
-  top: 10vh;
+  top: 8vh;
 }
 .profile-overview {
   display: flex;
@@ -1071,7 +1072,7 @@ font-size: 12px;
   border-radius: 3px;
   border: none;
   align-self: center;
-  margin: 10px 0;
+  margin: 20px 0 10px 0;
   font-size: 12px;
 }
 
