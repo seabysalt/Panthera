@@ -1077,13 +1077,14 @@ font-size: 12px;
   font-size: 12px;
 }
 #delete-prompt{
+  margin-top: 6vh;
   background-color: map-get($colorPanthera, primary );
   color: white;
   padding: 15vh 15vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
+  // position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -2094,9 +2095,10 @@ font-size: 12px;
   color: white;
   padding: 15vh 15vw;
   display: flex;
+  margin-top: 6vh;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
+  // position: absolute;
   width: 100%;
   height: 100%;
 }
