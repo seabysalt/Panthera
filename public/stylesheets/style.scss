@@ -2088,6 +2088,8 @@ font-size: 12px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 #delete-prompt button{
   border-radius: 3px;
@@ -2098,5 +2100,9 @@ font-size: 12px;
 
 #delete-prompt a {
   text-decoration: none;
+  border-radius: 3px;
+  padding: 1vh;
+  background-color: white;
+  color: map-get($colorPanthera, dark )
 }
 }
