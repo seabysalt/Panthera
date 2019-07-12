@@ -76,12 +76,16 @@
 
 
 <script>
+
     const like = (article) => {
-        document.querySelector(".like").style.display = 'none';
         axios.post("/session/content/like", { article: article }).then(response => {
             console.log(response)
         })
+        document.querySelector(".like").style.display = 'none';
     }
+
+
+
     const bookmark = (article) => {
         axios.post("/session/content/bookmark", { article: article }).then(response => {
             console.log(response)
