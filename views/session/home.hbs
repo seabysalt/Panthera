@@ -28,7 +28,7 @@
         <div class="articlefeed">
             {{#unless this.urlToImage}}
             <div class="community-icons">
-                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
+                <button class="bookmark" onclick="bookmark(`{{stringify this}}`)"><img src="/images/bookmark3.png"
                         alt="bookmark"></button>
             </div>
             <img class="cover"
@@ -37,7 +37,7 @@
             {{/unless}}
             {{#if this.urlToImage}}
             <div class="community-icons">
-                <button onclick="bookmark(`{{stringify this}}`)"><img class="bookmark" src="/images/bookmark3.png"
+                <button class="bookmark" onclick="bookmark(`{{stringify this}}`)"><img src="/images/bookmark3.png"
                         alt="bookmark"></button>
             </div>
             <img src="{{this.urlToImage}}" width="100%" alt="">
