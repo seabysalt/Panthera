@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      callbackURL: (process.env.PRODUCTION_URL || "http://localhost:3000") + "/auth/facebook/callback",
       profileFields: ['id', 'displayName', 'name', 'gender', 'picture.type(large)']
     },
     (accessToken, refreshToken, profile, done) => {
