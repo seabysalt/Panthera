@@ -14,7 +14,7 @@ const { google } = require("googleapis");
 
 const youtube = google.youtube({
     version: "v3",
-    auth: "AIzaSyCAdVA09svpmj_RSTdTeMuOgvJ_7l4_dCc"
+    auth: process.env.YOUTUBE_KEY
 });
 
 router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res) => {
@@ -75,7 +75,7 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
     //         }
     //      return a;
     //     }
- 
+
     //  Promise.all(interestsFeed)
     //      .then(feed => {
     //          const feedArticles = (feed.reduce((acc, val) => {
@@ -113,7 +113,7 @@ router.get("/home", ensureLogin.ensureLoggedIn(), (req, res) => {
             console.log(err)
         })
 
- });
+});
 
 // Active until here for only articles
 
