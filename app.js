@@ -48,7 +48,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerPartials(__dirname + "/views/Partials");
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
