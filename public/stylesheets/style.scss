@@ -861,7 +861,8 @@ font-size: 12px;
   align-items: center;
   min-height: 100%;
   position: relative;
-  top: 8vh;
+  top: 13vh;
+  padding-bottom: 10vh;
 }
 .profile-overview {
   display: flex;
@@ -1072,7 +1073,7 @@ font-size: 12px;
   border-radius: 3px;
   border: none;
   align-self: center;
-  margin: 15vh 0 10px 0;
+  margin: 10vh 0 10px 0;
   font-size: 12px;
 }
 
@@ -1845,7 +1846,8 @@ font-size: 12px;
   align-items: center;
   min-height: 100%;
   position: relative;
-  top: 10vh;
+  top: 13vh;
+  padding-bottom: 10vh;
 }
 .profile-overview {
   display: flex;
@@ -2042,7 +2044,7 @@ font-size: 12px;
   border-radius: 3px;
   border: none;
   align-self: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
   font-size: 12px;
 }
 
@@ -2058,7 +2060,7 @@ font-size: 12px;
   // font-size: 12px;
   color: map-get($colorCoral, darkT );
   text-decoration: none;
-  margin: 5vh 0 10vh 0;
+  margin: 5vh 0 20vh 0;
 }
 
 
