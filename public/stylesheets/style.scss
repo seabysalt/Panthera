@@ -1076,6 +1076,24 @@ font-size: 12px;
   margin: 10vh 0 10px 0;
   font-size: 12px;
 }
+#delete-prompt{
+  background-color: map-get($colorPanthera, primary );
+  color: white;
+  padding: 15vh 15vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#delete-prompt button{
+  border-radius: 3px;
+  padding: 1vh;
+  background-color: white;
+  color: map-get($colorPanthera, dark )
+}
+
+#delete-prompt a {
+  text-decoration: none;
+}
 
 .delete-btn {
   // background: map-get($colorCoral, darkT );
@@ -2063,5 +2081,22 @@ font-size: 12px;
   margin: 5vh 0 20vh 0;
 }
 
+#delete-prompt{
+  background-color: map-get($colorPanthera, primary );
+  color: white;
+  padding: 15vh 15vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#delete-prompt button{
+  border-radius: 3px;
+  padding: 1vh;
+  background-color: white;
+  color: map-get($colorPanthera, dark )
+}
 
+#delete-prompt a {
+  text-decoration: none;
+}
 }
