@@ -509,8 +509,11 @@ body {
     justify-content: space-between;
     width: 90vw;
     padding-right: 5vw; }
-  .like {
+   
+    .like {
     width: 12vw; }
+
+  
   /* ======================================= Slider Effect ===================================== */
   /* ======================================= Search ===================================== */
   .search-input {

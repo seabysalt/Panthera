@@ -544,7 +544,6 @@ font-size: 12px;
   color: map-get($colorPanthera, darkGrey );
   font-size: 20px;
   margin: 10px 0;
-  height: 60px;
   position: relative;
 }
 
@@ -861,6 +860,7 @@ font-size: 12px;
   align-items: center;
   min-height: 100%;
   position: relative;
+  top: 10vh;
 }
 .profile-overview {
   display: flex;
@@ -1535,7 +1535,7 @@ font-size: 12px;
   color: map-get($colorPanthera, darkGrey );
   font-size: 20px;
   margin: 10px 0;
-  height: 60px;
+
   position: relative;
 }
 
@@ -1844,6 +1844,7 @@ font-size: 12px;
   align-items: center;
   min-height: 100%;
   position: relative;
+  top: 10vh;
 }
 .profile-overview {
   display: flex;

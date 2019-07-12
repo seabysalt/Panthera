@@ -1,63 +1,63 @@
-<div class="parent-div">
+{{!-- <div class="parent-div"> --}}
 
-    <div class="profile">
+<div class="profile">
 
-        <div class="profile-overview">
-            {{!-- <div id="pr-img"> --}}
-            <img src="{{user.profilePicture}}" alt="">
-            {{!-- </div> --}}
-            <p>{{user.firstName}}</p>
+    <div class="profile-overview">
+        {{!-- <div id="pr-img"> --}}
+        <img src="{{user.profilePicture}}" alt="">
+        {{!-- </div> --}}
+        <p>{{user.firstName}}</p>
+    </div>
+
+    <div class="tags-interests">
+        <p class="tag-title fancy"><span>My Space</span></p>
+        <div class="in-wrapper">
+            <span class="my-tags">
+                <a href="/not-found">Notes</a>
+            </span>
+            <span class="my-tags">
+                <a href="/not-found">Bookmarks</a>
+            </span>
+            <span class="my-tags">
+                <a href="/not-found">Likes</a>
+            </span>
         </div>
+    </div>
 
-        <div class="tags-interests">
-            <p class="tag-title fancy"><span>My Space</span></p>
-            <div class="in-wrapper">
-                <span class="my-tags">
-                    <a href="/not-found">Notes</a>
-                </span>
-                <span class="my-tags">
-                    <a href="/not-found">Bookmarks</a>
-                </span>
-                <span class="my-tags">
-                    <a href="/not-found">Likes</a>
-                </span>
-            </div>
+    <div class="tags-interests">
+        <p class="tag-title fancy"><span>My interests</span></p>
+        <div class="in-wrapper">
+            {{#each user.interests}}
+            <span class="tag-interest">
+                <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
+            </span>
+            {{/each}}
         </div>
+    </div>
 
-        <div class="tags-interests">
-            <p class="tag-title fancy"><span>My interests</span></p>
-            <div class="in-wrapper">
-                {{#each user.interests}}
-                <span class="tag-interest">
-                    <a href="/session/profile/deleteInterest/{{this}}">{{this}}</a>
-                </span>
-                {{/each}}
-            </div>
-        </div>
+    <div class="add-interest">
+        <p class="tag-title fancy"><span>Add interest</span></p>
+        <form action="/session/profile" method="post" id="input-new-interests">
+            <label for=" interest"></label>
+            <img src="/images/plus.png" alt="">
+            <input type="text" name="interest">
+        </form>
+    </div>
 
-        <div class="add-interest">
-            <p class="tag-title fancy"><span>Add interest</span></p>
-            <form action="/session/profile" method="post" id="input-new-interests">
-                <label for=" interest"></label>
-                <img src="/images/plus.png" alt="">
-                <input type="text" name="interest">
-            </form>
-        </div>
+    <a class="log-btn" href="/auth/logout">Logout</a>
+    <button onclick="deleteAccount()" style="color: red">{{!--<a class="delete-btn" href="#">  --}}Delete account
+        {{!--</a>  --}}</button>
 
-        <a class="log-btn" href="/auth/logout">Logout</a>
-        <button onclick="deleteAccount()" style="color: red">{{!--<a class="delete-btn" href="#">  --}}Delete account
-            {{!--</a>  --}}</button>
-
-        <div id="delete-prompt" style="display: none">
-            <h3>Are you sure you want to delete your account {{user.firstname}} ?</h3>
-            <p>Sad to see you go :(</p>
-            <button><a href="/auth/logout">Yes</a></button>
-            <button><a href="/session/profile">No</a></button>
-        </div>
-
+    <div id="delete-prompt" style="display: none">
+        <h3>Are you sure you want to delete your account {{user.firstname}} ?</h3>
+        <p>Sad to see you go :(</p>
+        <button><a href="/auth/logout">Yes</a></button>
+        <button><a href="/session/profile">No</a></button>
     </div>
 
 </div>
+
+{{!-- </div> --}}
 
 <style>
     #delete-prompt {
