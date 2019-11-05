@@ -22,7 +22,7 @@
     "googleapis": "^40.0.1",
     "hbs": "^4.0.1",
     "meetup-api": "^1.4.38",
-    "mongoose": "^5.2.10",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.0",
     "newsapi": "^2.4.0",
     "node-sass-middleware": "^0.11.0",
